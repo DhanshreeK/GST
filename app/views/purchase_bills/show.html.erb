@@ -42,6 +42,10 @@
                                 </thead>
 
                                 <tbody>
+
+                                  <%tax_amt = 0%>
+                                  <%total_amt = 0%>
+                                  <%ans = 0%>
                                   <% @purchase_bill_invoice.purchase_bill_items.each_with_index do |i,n|%>
                                     <tr>
                                       <td><%= n + 1 %></td>
@@ -53,6 +57,8 @@
                                       <td>CGST+SGST</td>
                                       <td>&#8377;<%= i.tax_amt%></td>
                                       <td align="right">&#8377;<%= i.total_amt%></td>
+                                      <%total_amt += i.total_amt.to_f%>
+                                      <%@purchase_bill_invoice.update(invoice_value: total_amt)%>
                                      
                                     </tr>
                                   <% end %>

@@ -65,6 +65,7 @@ class InvoicesController < ApplicationController
   def show
     if params[:params1].present?
       @invoice.update!(total_invoice_value: params[:params1], cess: params[:params2])
+     
     end
     respond_to do |format|
       format.html

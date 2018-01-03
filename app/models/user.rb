@@ -27,6 +27,7 @@ class User < ApplicationRecord
   has_many :job_works, dependent: :destroy
   has_many :job_work_inwards, dependent: :destroy
   has_many :other_challans, dependent: :destroy
+  has_many :hsn_summary_for_sale_bills, dependent: :destroy
 
 
   def create_general_setting
