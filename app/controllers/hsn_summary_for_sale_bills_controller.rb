@@ -11,6 +11,6 @@ class HsnSummaryForSaleBillsController < ApplicationController
 	private
 
 	def hsn_summary_for_sale_bill_params
-		params.require(:hsn_summary_for_sale_bill).permit!
+		params.require(:hsn_summary_for_sale_bill).permit(:cess)
 	end
 end

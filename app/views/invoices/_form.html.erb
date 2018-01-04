@@ -71,6 +71,21 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div class="col-sm-3">
+          <label class="col-sm-10 control-label"><b>Cess</b></label>   
+          <%= f.text_field :cess, class: 'form-control', placeholder: 'only if avialable'%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-3">
+          <label class="col-sm-10 control-label"><b>Total Incoice Value</b></label>   
+          <%= f.text_field :total_invoice_value, id: :total, class: 'form-control', placeholder: 'Total Invoice Value'%>
+        </div>
+      </div>
+
+
         <div class="form-group">
           <div class="col-sm-3">
             <label class="col-sm-10 control-label">Place of Supply</label>   
@@ -91,6 +106,11 @@
           <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
         </div>
       </div>
+
+
+
+
+
       <%end%>  
 
       <div class="form-group">
@@ -100,15 +120,18 @@
         </div>
       </div>
 
+
+
+
      
 
 
+<br><br> <br><br> <br><br> <br><br> <br><br
+    
 
-      <br><br><br><br><br><br>
 
 
-
-      <div class="panel-body">
+     ><div class="panel-body">
 
         <div class="table-responsive">
           <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
@@ -257,6 +280,7 @@
 
 <% content_for :javascript do %>
 <script type="text/javascript">
+  var test = 0;
  $(document).on("keyup", "#rate, #qty", function() {
   container = elem.parents("tr.fields");
   var val1 = +container.find("#rate").val();
@@ -269,6 +293,12 @@
   +container.find('#tax_amt').val(val3*val1*val2/100);
   var ans = (val1*val2 + val3*val1*val2/100);
   +container.find('#total_amt').val(ans);
+  
+  var tot = +container.find("#total_amt").val();
+  test = test + tot;
+  document.getElementById("total").value = test;
+
+  
 });
 
 
