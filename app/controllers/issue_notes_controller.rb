@@ -25,9 +25,12 @@ class IssueNotesController < ApplicationController
   end
 
  def update
+
   @issue_note = IssueNote.find(params[:id])
   respond_to do |format|
     if @issue_note.update(issue_note_params)
+      @issue_note.assign_attributes(id: params[:id])
+
       format.html { redirect_to issue_note_path, notice: 'issue_note was successfully updated.' }
       format.json { render :index, status: :ok, location: @issue_note }
     else
@@ -70,6 +73,6 @@ def show
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_note_params
-      params.require(:issue_note).permit(:ur_types,:document_type,:note_type,:id, :date_of_original_invoice, :invoice_no, :gstin_no, :e_way_bill_no, :date_of_issue_note, :issue_note_no, :pre_gst, :place_of_supply, :customer_id, :reason_for_issuing_note, :register_type, :note_typee,issue_note_items_attributes:[ :unit_price, :quantity,:item_id,:rate, :qty, :net_amt, :sgst, :cgst, :tax_rate, :tax_amt, :total_amt,:_destroy])
+      params.require(:issue_note).permit(:ur_types,:document_type,:note_type,:id, :date_of_original_invoice, :invoice_no, :gstin_no, :e_way_bill_no, :date_of_issue_note, :issue_note_no, :pre_gst, :place_of_supply, :customer_id, :reason_for_issuing_note, :register_type, :note_typee,issue_note_items_attributes:[:id, :unit_price, :quantity,:item_id,:rate, :qty, :net_amt, :sgst, :cgst, :tax_rate, :tax_amt, :total_amt,:_destroy])
     end
 end

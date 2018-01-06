@@ -41,7 +41,7 @@
                       <td><%=i+1%></td>
                       <td><%=link_to a.invoice_no, issue_note_path(a), class: 'btn btn-link' %></td>
                       <td><%=a.date_of_original_invoice %></td>
-                      <td><%=a.customer.customer_name%></td>
+                      <td><%=a.customer.customer_name if a.customer.present?%></td>
                       <td><%= link_to 'Destroy',issue_note_path(a), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-link'%></td>
                     </tr>
                     <% end %>

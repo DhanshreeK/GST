@@ -24,7 +24,7 @@
          </div>
        </div>
        <div class="panel-body">
-        <%= nested_form_for @issue_note, url: {action:'create', controller: 'issue_notes'} do |f|%>
+        <%= nested_form_for @issue_note, url: {action:'update', controller: 'issue_notes'}, mathod: :patch do |f|%>
         <form class="form-horizontal">
           <div class="form-group">
             <div class="col-sm-3">
@@ -217,7 +217,7 @@
 
 
      <% end %>
-     <td><%= f.link_to_add "Add Item", :issue_note_items , class: 'btn btn-danger', onclick: "javascript:alert(this.id);" %></td>      <div class="pull-right">
+     <td><%= f.link_to_add "Add Item", :issue_note_items , class: 'btn btn-danger' %></td>      <div class="pull-right">
      <p><%= f.submit "Create Invoice", class: 'btn btn-success' %></p>
    </div>
    <% end %>
@@ -311,7 +311,6 @@
   +container.find('#tax_amt').val(val3*val1*val2/100);
   var ans = (val1*val2 + val3*val1*val2/100);
   +container.find('#total_amt').val(ans);
-  alert(this.id);
 });
 
 
