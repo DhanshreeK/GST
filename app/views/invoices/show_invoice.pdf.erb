@@ -7,13 +7,14 @@
    }
 
    p {
-     width: 300px;
+       margin-bottom:0px;
 
    }
 
    address{
     display: block;
     width: 300px;
+    margin:0px;
     
    }
    table, th, td {
@@ -26,8 +27,7 @@
      text-align: left;
    }
    table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
+     background-color: #eee      }
    table#t01 tr:nth-child(odd) {
     background-color:#fff;
   }
@@ -46,90 +46,93 @@
   width: 150px;
 }
 
-.gallery-text {
-  float: left;
-  width: 48%;
-  margin: 1%;
+
+.maindiv{
+    width:100%;
 }
-.gallery-text p {
-  word-break: break-all;
+.leftdiv{
+  float:left;
+  width:50%;
+} 
+.rightdiv{
+  float:right;
+  width:30%;
+} 
+.centerdiv{
+  width:50%;
+  margin:0 auto;
 }
+p span{
+  font-weight:700;
+  color:#000;
+}
+
 </style>
 </head>
 <body>
 
+  <div class="maindiv">
+          <div class="leftdiv">
+           <%= wicked_pdf_image_tag 'test.jpg' %>
+          </div>
+
+          <div class="rightdiv">
+        
+            <p> <h2><span><%=current_user.party.party_name%> </span><br>
+            Tax Invoice </h2>(Original for Recipient)
+            </p>
+          </div> 
+  </div> 
+
+  <div class="maindiv">
+              <div class="leftdiv">
+                    
+                    <p><span>Consignee GSTIN Number:</span>
+                      <%=current_user.party.party_gstin_no%></p>
+
+                    <address> <span>Address:</span>
+                     <%=current_user.party.party_address%></address>
+
+                     <p><span>Contact Details:</span>
+                    <%=current_user.party.contact_no%></p>
+
+                    <p> <span>Vehicle Number:</span>
+                       <%=@invoice.vehicle_number%></p>
+
+                        <p> <span>Transportation Mode:</span>
+                       <%=@invoice.transportation_mode%></p>
+              </div>
 
 
+              <div class="rightdiv">
+                      <p> <span>Consigner:</span>
+                         <%=@invoice.customer.customer_name%></p>
+                      <address> <span>Address:</span>
+                      <%=@invoice.customer.address%></address>
+                      <p> <span>GSTIN No:</span>
+                      <%=@invoice.customer.gstin_no_reg%>
+                      </p>
+                      <p> <span>Place of Supply:</span>
+                      <%=@invoice.customer.cust_place_of_supply%></p>
+                      <p> <span>E-Way Bill No</span>
+                      <%=@invoice.ebay_bill_no%></p>
 
-  <div id="gallery-text">
-    <div class="gallery-text">
-     <%= wicked_pdf_image_tag 'test.jpg' %>
-   </div>
-   <div class="gallery-text" align="right">
-    <p>
-      <p> <h2><strong><font color="black"><%=current_user.party.party_name%> <br>
-      Tax Invoice</strong>  </h2></font> <font size="3">(Original for Recipient)</font>
-      </p>
-    </div> 
-  </div>
+              </div> 
 
-
-
-  <div id="gallery-text">
-
-    <div class="gallery-text">
-      <p>
-        <p><strong>Consignee GSTIN Number:</strong>
-          <%=current_user.party.party_gstin_no%></p>
-
-          <address> <strong>Address:</strong>
-           <%=current_user.party.party_address%></address>
-
-           <p><strong>Contact Details:</strong>
-          <%=current_user.party.contact_no%></p>
-
-            <p> <strong>Vehicle Number:</strong>
-               <%=@invoice.vehicle_number%></p>
-
-                <p> <strong>Transportation Mode:</strong>
-               <%=@invoice.transportation_mode%></p>
-           
-           </div>
-
-
-           <div class="gallery-text" align="right">
-            <p>
-
-            <p> <strong>Consigner:</strong>
-               <%=@invoice.customer.customer_name%></p>
-              <address> <strong>Address:</strong>
-                 <%=@invoice.customer.address%></address>
-                 <p> <strong>GSTIN No:</strong>
-                   <%=@invoice.customer.gstin_no_reg%></p>
-                 </p>
-                 <p> <strong>Place of Supply:</strong>
-                   <%=@invoice.customer.cust_place_of_supply%></p>
-                 </p>
-               </div>
-             <p> <strong>E-Way Bill No</strong>
-               <%=@invoice.ebay_bill_no%></p>
-             </div>
-   <div class align ="right">
-              
-               <br>
-               <br>
                
-             </div>  
-             <div class align="left">
+    </div>
+    <div class="maindiv">
+                <div class="leftdiv">
+                      <p><span>Invoice Date:</span>
+                      <%=@invoice.date%></p>
 
-              <p><strong>Invoice Date:</strong>
-                <%=@invoice.date%></p>
-                <p><strong>Invoice no:</strong>
-                  <%=@invoice.invoice_no%></p><br>
                 </div>
-              </div>  
-            </div>  
+                <div class="rightdiv">
+                      <p><span>Invoice no:</span>
+                      <%=@invoice.invoice_no%></p>                  
+                </div>
 
+              </div>
 
 
             <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
