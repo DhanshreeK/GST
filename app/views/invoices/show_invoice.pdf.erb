@@ -39,11 +39,12 @@
    display:inline;
  }
 
- img {
-  border: 1px solid #ddd;
+.img {
+  border: 0px solid #ddd;
+  float: left;
   border-radius: 1px;
   padding: 3px;
-  width: 150px;
+  width: 200px;
 }
 
 
@@ -59,7 +60,7 @@
   width:30%;
 } 
 .centerdiv{
-  width:50%;
+  width:100%;
   margin:0 auto;
 }
 p span{
@@ -72,26 +73,20 @@ p span{
 <body>
 
   <div class="maindiv">
-          <div class="leftdiv">
-           <%= wicked_pdf_image_tag 'test.jpg' %>
-          </div>
+      
+          <div class="img">
+           <%= wicked_pdf_image_tag current_user.party.image %>
+           </div>
+        
 
-          <div class="rightdiv">
+          <div class="leftdiv">
         
             <p> <h2><span><%=current_user.party.party_name%> </span><br>
             Tax Invoice </h2>(Original for Recipient)
-            </p>
-          </div> 
-  </div> 
-
-  <div class="maindiv">
-              <div class="leftdiv">
-                    
-                    <p><span>Consignee GSTIN Number:</span>
-                      <%=current_user.party.party_gstin_no%></p>
-
-                    <address> <span>Address:</span>
+            <address> <span>Address:</span>
                      <%=current_user.party.party_address%></address>
+                      <p><span>Consignee GSTIN Number:</span>
+                      <%=current_user.party.party_gstin_no%></p>
 
                      <p><span>Contact Details:</span>
                     <%=current_user.party.contact_no%></p>
@@ -101,7 +96,12 @@ p span{
 
                         <p> <span>Transportation Mode:</span>
                        <%=@invoice.transportation_mode%></p>
-              </div>
+            </p>
+          </div> 
+  </div> 
+
+  <div class="maindiv">
+            
 
 
               <div class="rightdiv">
@@ -121,15 +121,13 @@ p span{
 
                
     </div>
-    <div class="maindiv">
+              <div class="maindiv">
                 <div class="leftdiv">
                       <p><span>Invoice Date:</span>
                       <%=@invoice.date%></p>
-
-                </div>
-                <div class="rightdiv">
                       <p><span>Invoice no:</span>
-                      <%=@invoice.invoice_no%></p>                  
+                      <%=@invoice.invoice_no%></p>
+
                 </div>
 
               </div>

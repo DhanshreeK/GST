@@ -1,256 +1,232 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-     width:100%;
-   }
-   table, th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
-     font-size: 12px;
-   }
+<style>
+table {
+width:100%;
+}
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+font-size: 12px;
+}
 
-  p{
-    width: 250px;
-  }
-   th, td {
-     padding: 2px;
-     text-align: left;
-   }
-   table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
-   table#t01 tr:nth-child(odd) {
-    background-color:#fff;
-  }
-  table#t01 th {
-   background-color: black;
-   color: white;
- }
- h5 {
-   display:inline;
- }
-  img {
-    border: 1px solid #ddd;
-    border-radius: 1px;
-    padding: 3px;
-    width: 150px;
+p{
+width: 250px;
+}
+th, td {
+padding: 2px;
+text-align: left;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color:#fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+h5 {
+display:inline;
+}
+img {
+border: 1px solid #ddd;
+border-radius: 1px;
+padding: 3px;
+width: 150px;
 }
 
 
- .gallery-text {
-    float: left;
-    width: 48%;
-    margin: 1%;
+.gallery-text {
+float: left;
+width: 48%;
+margin: 1%;
 }
 .gallery-text p {
-    word-break: break-all;
+word-break: break-all;
 }
 </style>
 </head>
 <body>
 
- 
 
 
 
-  <div id="gallery-text">
 
-    <div class="gallery-text">
-     <%= wicked_pdf_image_tag 'test.jpg' %>
+<div id="gallery-text">
+
+<div class="gallery-text">
+<%= wicked_pdf_image_tag 'test.jpg' %>
+</div>
+
+
+<div class="gallery-text" align="right">
+
+<p>
+<p> <h2><strong><font color="grey">Export PurchaseBill  </strong>  </h2></font> <font size="3">(Original for Recipient)</font>
+
+
+</p>
+</div> 
+
+
+
+
+
+
+</div>
+
+
+
+<div id="gallery-text">
+
+<div class="gallery-text">
+<p>
+<p><strong>Consignee:</strong>
+
+
+<%=current_user.party.party_name%></p>
+
+<p> <strong>Address:</strong>
+<%=current_user.party.party_address%></p>
+
+<p> <strong>GSTIN No:</strong>
+<%=current_user.party.party_gstin_no%></p>
+<p> <strong>PAN No</strong>
+<%=current_user.party.party_pan_no%></p>
+</p>
+<p><strong>Transportation Mode</strong>
+<%=@export_purchase_bill_invoice.transportation_mode%></p>
+<p><strong>Vehicle Number</strong>
+<%=@export_purchase_bill_invoice.vehicle_number%></p>
+</div>
+
+
+<div class="gallery-text" align="right">
+
+<p>
+<p> <strong>Consigner:</strong>
+<%=@export_purchase_bill_invoice.customer.customer_name%></p>
+<p> <strong>Address:</strong>
+<%=@export_purchase_bill_invoice.customer.address%></p>
+<p> <strong>GSTIN No:</strong>
+ <%=@export_purchase_bill_invoice.customer.gstin_no_reg%></p>
+
+
+</p>
+</div> 
+</div>
+<div class align ="right">
+   <br>
+   <br>
+ </div>  
+ <div class align="left">
+  
+    <p><strong>Invoice Date:</strong>
+      <%=@export_purchase_bill_invoice.date%></p>
+      <p><strong>Invoice no:</strong>
+      <%=@export_purchase_bill_invoice.purchase_no%></p><br>
     </div>
-
-
-    <div class="gallery-text" align="right">
-
-        <p>
-          <p> <h2><strong><font color="grey">Export PurchaseBill  </strong>  </h2></font> <font size="3">(Original for Recipient)</font>
-          
-
-          </p>
-    </div> 
-
-
-
-
-
-               
-  </div>
-   
-
     
-  <div id="gallery-text">
-
-    <div class="gallery-text">
-      <p>
-      <p><strong>Consignee:</strong>
-
-        
-        <%=current_user.party.party_name%></p>
-     
-          <p> <strong>Address:</strong>
-           <%=current_user.party.party_address%></p>
-           
-           <p> <strong>GSTIN No:</strong>
-             <%=current_user.party.party_gstin_no%></p>
-             <p> <strong>PAN No</strong>
-               <%=current_user.party.party_pan_no%></p>
-        </p>
-    </div>
-
-
-    <div class="gallery-text" align="right">
-
-        <p>
-          <p> <strong>Consigner:</strong>
-                 <%=@export_purchase_bill_invoice.customer.customer_name%></p>
-                 <p> <strong>Address:</strong>
-                   <%=@export_purchase_bill_invoice.customer.address%></p>
-                   <p> <strong>GSTIN No:</strong>
-                     <%=@export_purchase_bill_invoice.customer.gstin_no_reg%></p>
-
-          </p>
-    </div> 
-
-
-
-
-
-               
-  </div>
-
-
-
-
-
-
-
-
-             <div class align ="right">
-           
-                    
-                       <br>
-                       <br>
-                       
-                     </div>  
-                     <div class align="left">
-                      
-                        <p><strong>Invoice Date:</strong>
-                          <%=@export_purchase_bill_invoice.date%></p>
-                          <p><strong>Invoice no:</strong>
-                          <%=@export_purchase_bill_invoice.purchase_no%></p><br>
-
-                        
-
-                        </div>
-                        
-                      </div>  
-                    </div>  
-                    <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px; border-color: white;">
-                      <thead>
-                        <tr>
-                          <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="11"><center>Export Purchase Invoice</center></th>
-                        </tr>
-
-                        <th>Sr No</th>
-                        <th>Item Description</th>
-                        <th>HSN/SAC</th>
-                        
-                        <th>Unit Price</th>
-                        <th>Quantity</th>
-                        <th>Net Amount</th>
-                        
-                       
-                        <th>Total Amount</th>
-                      </tr>
-                      <%tax_amt = 0%>
-                      <%total_amt = 0%>
-                      <%tnet = 0%>
-
-                      <% @export_purchase_bill_invoice.export_purchase_bill_items.each_with_index do |i,n|%>
-                      <tr>
-                        <td><%= n + 1 %></td>
-                        <td><%= i.item.dogns%></td>
-                        <td><%= i.item.item_hsn_no%></td>
-                       
-                        <td>&#8377;<%= i.unit_price%></td>
-                        <td><%= i.quantity%></td>
-                        <td>&#8377;<%= i.net_amount%></td>
-
-                        <% tnet = tnet + i.net_amount.to_f %>
-                        
-                        
-                       
-                        <td align="right">&#8377;<%= i.total_amt%></td>
-                      </tr>
-                      <% tax_amt += i.tax_amt.to_f%>
-                      <%total_amt += i.total_amt.to_f%>
-                      <% end %>
-
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                       
-                        <td></td>
-                        
-                        <td>Total Net Amount: &#8377;<%=tnet%></td>
-                       
-                   
-                        <td>Total Amount: &#8377;<%= total_amt%></td>
-                      </tr>
-
-
-                      
-                       
-                   
-                   
-                    
-
-                 
-
-
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </thead>
-        </table>
-
-
-         <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
-                      <thead>
-                      
-                        <tr>
-      <th><h3>Amount in Words:-   </h3> <h3><%= total_amt.to_i.to_words.split.map(&:capitalize).join(' ')%> Only</th>
+  </div>  
+</div>  
+<table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px; border-color: white;">
+  <thead>
+    <tr>
+      <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="11"><center>Export Purchase Invoice</center></th>
     </tr>
 
-                        <tr>
-                        <th> 
+    <th>Sr No</th>
+    <th>Item Description</th>
+        <th>Item Code</th>
+    <th>HSN/SAC</th>
+    
+    <th>Unit Price</th>
+    <th>Quantity</th>
+    <th>Net Amount</th>
+    
+   
+    <th>Total Amount</th>
+  </tr>
+  <%tax_amt = 0%>
+  <%total_amt = 0%>
+  <%tnet = 0%>
 
-                          <H2 align="right">For <%=current_user.party.party_name%></H2>
+  <% @export_purchase_bill_invoice.export_purchase_bill_items.each_with_index do |i,n|%>
+  <tr>
+    <td><%= n + 1 %></td>
+    <td><%= i.item.dogns%></td>
+    <td><%= i.item.item_code%></td>
+    <td><%= i.item.item_hsn_no%></td>
+   
+    <td>&#8377;<%= i.unit_price%></td>
+    <td><%= i.quantity%></td>
+    <td>&#8377;<%= i.net_amount%></td>
 
-                           <h2 align="right">&nbsp;</h2>
+    <% tnet = tnet + i.net_amount.to_f %>
+    
+    
+   
+    <td align="right">&#8377;<%= i.total_amt%></td>
+  </tr>
+  <% tax_amt += i.tax_amt.to_f%>
+  <%total_amt += i.total_amt.to_f%>
+  <% end %>
 
-                          <h2 align="right">Authorized Signatory</h2> 
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   
+    <td></td>
+    
+    <td>Total Net Amount: &#8377;<%=tnet%></td>
+   
+
+    <td>Total Amount: &#8377;<%= total_amt%></td>
+  </tr>
+  
+</div>
+</div>
+</div>
+</div>
+</div>
+</thead>
+</table>
 
 
-                        </th>
-                        </tr>
-                     
-         
+<table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
+  <thead>
+  
+    <tr>
+<th><h3>Amount in Words:-   </h3> <h3><%= total_amt.to_i.to_words.split.map(&:capitalize).join(' ')%> Only</th>
+</tr>
 
-             
-          </thead>
-        </table>
+    <tr>
+    <th> 
+
+       <H4 align="right">Note <%=@export_purchase_bill_invoice.narration%></H4>
+          <H4 align="left">Terms and Conditions <%=@export_purchase_bill_invoice.terms_and_conditions%></H4>
+          <h4 align="right">&nbsp;</h4>
+
+          <h4 align="right">Authorized Signatory</h4> 
 
 
-
+    </th>
+    </tr>
  
+
+
+
+</thead>
+</table>
+
+
+
+
 
 
 

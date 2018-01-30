@@ -58,7 +58,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def export_purchase_params
-      params.require(:export_purchase_bill).permit(:customer_id, :purchase_no, :date,export_purchase_bill_items_attributes:[ :unit_price, :quantity,:item_id,:rate, :qty, :net_amt, :sgst, :cgst, :tax_rate, :net_amount, :tax_amt, :total_amt,:_destroy])
+      params.require(:export_purchase_bill).permit(:bill_type, :transportation_mode, :vehicle_number, :rcm, :terms_and_conditions, :narration, :customer_id, :purchase_no, :date,export_purchase_bill_items_attributes:[ :unit_price, :quantity,:item_id,:rate, :qty, :net_amt, :sgst, :cgst, :tax_rate, :net_amount, :tax_amt, :total_amt,:_destroy])
     end
 end
     # Never trust parameters from the scary internet, only allow the white list through.

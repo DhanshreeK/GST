@@ -102,6 +102,7 @@ Rails.application.routes.draw do
       post :excel_lists
       get :composite_report
       post :composite_excels
+      get :export_excel
     end
   end
 

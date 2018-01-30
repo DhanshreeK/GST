@@ -21,6 +21,12 @@
                                 <%=@export_purchase_bill_invoice.date%></p>
                                  <p> <strong>Customer Name:</strong>
                                <%=@export_purchase_bill_invoice.customer.customer_name%></p>
+                                <p> <strong>Customer Business Type:</strong>
+                               <%=@export_purchase_bill_invoice.bill_type%></p>
+                               <p><strong>Transportation Mode</strong>
+                                  <%=@export_purchase_bill_invoice.transportation_mode%></p>
+                                  <p><strong>Vehicle Number</strong>
+                                  <%=@export_purchase_bill_invoice.vehicle_number%></p>
                               
                              <br>
   
@@ -30,6 +36,7 @@
                                   <tr>
                                    <th>Sr No</th>
                                     <th>Item Description</th>
+                                      <th>Item Code</th>
                                     <th>Unit Price</th>
                                     <th>Quantity</th>
                                     <th>Net Amount</th>
@@ -43,6 +50,8 @@
                                     <tr>
                                       <td><%= n + 1 %></td>
                                       <td><%= i.item.dogns%></td>
+
+                                      <td><%= i.item.item_code%></td>
                                        <td>&#8377;<%= i.unit_price%></td>
                                       <td><%= i.quantity%></td>
                                       <td>&#8377;<%= i.net_amount%></td>
