@@ -1,3 +1,5 @@
+
+<%= render 'layouts/custadd'%>
 <div class="pageheader">
   <h1>Receipt Voucher</h1>
   <div class="breadcrumb-wrapper hidden-xs">
@@ -27,41 +29,43 @@
         <%= nested_form_for @receipt_voucher, url: {action:'create', controller: 'receipt_vouchers'} do |f|%>
        <%if current_user.role == 'Party'%>
 
-                                            <div class="form-group">
-                                              <div class="col-sm-3">
-                                                <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
-                                              </div>
-                                            </div>
-                                            <%else%>
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
 
-                                            <div class="form-group">
-                                              <div class="col-sm-3">
-                                                <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
-                                              </div>
-                                            </div>
-                                            <%end%>
-                                          
+              <%= render 'layouts/partials/addbutton'%>
+            </div>
+          </div>
+          <%else%>
 
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-6 control-label">Address</label>   
-                                               <input type="address" name="address" id="address" class="form-control"></td> </div>
-                                            </div>
-                                           
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+            </div>
+          </div>
+          <%end%>
+        
 
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-6 control-label">GST No</label>   
-                                                <input type="gstin_no_reg" name="gstin_no_reg" id="gstin_no_reg" class="form-control"></td>
-                                            </div>
-                                           </div>
+         <div class="form-group">
+          <div class="col-sm-3">
+            <label class="col-sm-6 control-label">Address</label>   
+             <input type="address" name="address" id="address" class="form-control"></td> </div>
+          </div>
+         
 
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-6 control-label">PAN No</label>   
-                                                <input type="cust_pan_no" name="cust_pan_no" id="cust_pan_no" class="form-control"></td>
-                                            </div>
-                                           </div>
+         <div class="form-group">
+          <div class="col-sm-3">
+            <label class="col-sm-6 control-label">GST No</label>   
+              <input type="gstin_no_reg" name="gstin_no_reg" id="gstin_no_reg" class="form-control"></td>
+          </div>
+         </div>
+
+         <div class="form-group">
+          <div class="col-sm-3">
+            <label class="col-sm-6 control-label">PAN No</label>   
+              <input type="cust_pan_no" name="cust_pan_no" id="cust_pan_no" class="form-control"></td>
+          </div>
+         </div>
 
       <div class="form-group">
         <div class="col-sm-3">

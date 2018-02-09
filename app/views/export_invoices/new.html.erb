@@ -1,3 +1,5 @@
+<%= render 'layouts/custadd'%>
+
 <div class="pageheader">
 <h1>New Export Invoice</h1>
 <div class="breadcrumb-wrapper hidden-xs">
@@ -42,6 +44,13 @@
       <div class="form-group">
         <div class="col-sm-3">
           <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+
+          <center><p>
+          <button  type="button" data-toggle="modal" data-target="#formModal" style="width: 181px; height: 24px;background: white;color: black;">
+          Add Cutomer
+          </button>
+        </p>
+          </center>
         </div>
       </div>
       <%else%>
