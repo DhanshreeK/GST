@@ -99,8 +99,6 @@ Rails.application.routes.draw do
     collection do
       get :export_excels
       post :excel_lists
-      get :composite_report
-      post :composite_excels
       get :export_excel
     end
   end

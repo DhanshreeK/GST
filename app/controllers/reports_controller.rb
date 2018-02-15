@@ -227,47 +227,4 @@ def export_excels
         render 'new'
       end
     end
-
-
-    def composite_report
-    end
-    
-    def composite_excels
-      @start_date = params[:report][:start_date].to_date
-      @end_date = params[:report][:end_date].to_date
-      @gstr_type = params[:report][:gstr_type]
-        if @start_date.nil? || @end_date.nil?
-          flash[:alert] = 'Done'
-          render 'composite_export'
-        end
-    end
-    
-
-    def composite_export_excels
-      @results = current_user.composite_cd_notes
-      book = Spreadsheet::Workbook.new
-      sheet1 = book.create_worksheet :name => '4B(B2B)'
-      sheet2 = book.create_worksheet :name => '4C(B2BUR)'
-      sheet3 = book.create_worksheet :name => '4D(IMPS)'
-      sheet4 = book.create_worksheet :name => '5B(CDNR)'
-      sheet5 = book.create_worksheet :name => '5B(CDNUR)'
-      sheet1.row(0).height = 18
-      format = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 9, :right_color => :red
-      sheet1.row(1).default_format = format
-      sheet1.row(1).push "GSTIN/UIN of Supplier", "Invoice Number", "Invoice date", "Invoice Value", "Place Of Supply","Reverse Charge", "Invoice Type", "Rate","Integrated Tax", "Central Tax", "State/UT Tax","Taxable Value", "Cess Amount"
-      # @results.each_with_index do |r, i|
-      #   if r.date.between?(params[:start_date].to_date ,params[:end_date].to_date) && params[:gstr_type] == 'GSTR1'
-      #       if r.gstr_holder == 'GST HOLDER(B2B SUPPLY)'
-      #           sheet1.insert_row(sheet1.last_row_index + 1, ["#{r.customer.gstin_no_reg}", "#{r.invoice_no}", "#{r.date}","#{r.invoice_value}", "#{r.customer.address}", "#{r.rcm}","Regular","#{r.ebay_bill_no}","#{r.tax_rate}","#{r.invoice_value}","#{r.total_invoice_value}"])
-      #               if r.invoice_value.blank?
-      #                 r.invoice_value = 0
-      #               end
-      #              invoicetest = invoicetest + r.invoice_value.to_i
-      #              customer1 = customer1 + r.customer_id.to_i
-      #              total_invoices = total_invoices + r.invoice_no.to_i
-      #       end
-      #   end
-      # end
-      # sheet1.row(0).push "Total Receipient","#{customer1}","Total Invoice Value","#{invoicetest}"
-  end
 end
