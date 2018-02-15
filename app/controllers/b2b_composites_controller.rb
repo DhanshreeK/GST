@@ -101,6 +101,6 @@ class B2bCompositesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:b2b_composite).permit(:total_b2b_composite_value,:invoice_type,:tax_rate,:rcm,:user_id,:customer_id, :invoice_number,:invoice_date,b2b_composite_items_attributes:[:id ,:unit_price, :quantity,:item_id,:rate, :qty, :net_amt, :sgst, :cgst, :tax_rate, :tax_amt, :total_amt,:_destroy])
+      params.require(:b2b_composite).permit(:supply_type ,:total_b2b_composite_value,:invoice_type,:tax_rate,:rcm,:user_id,:customer_id, :invoice_number,:invoice_date,b2b_composite_items_attributes:[:id ,:unit_price, :quantity,:item_id,:rate, :qty, :net_amt, :sgst, :cgst, :tax_rate, :tax_amt, :total_amt,:_destroy])
     end
 end

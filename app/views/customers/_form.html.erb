@@ -39,38 +39,38 @@
                                 <form class="form-horizontal">
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                      <label class="col-sm-10 control-label">Company Name</label>
+                                      <label class="col-sm-15 control-label">Company Name</label>
                                       <%= f.text_field :customer_name, id: :customer_customer_name, class: "form-control",placeholder: "Company Name."%>
                                     </div>
                                   </div>
 
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                        <label class="col-sm-10 control-label">GST No If Register</label>
+                                        <label class="col-sm-15 control-label">GST No If Register</label>
                                           <%= f.text_field :gstin_no_reg, id: :customer_gstin_no_reg , class: "form-control" ,placeholder: "GST No."%>
                                     </div>
                                     </div>
 
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                        <label class="col-sm-10 control-label">ARN No</label>
+                                        <label class="col-sm-15 control-label">ARN No</label>
                                           <%= f.text_field :arn_no, id: :customer_arn_no , class: "form-control" ,placeholder: "ARN No"%>
                                     </div>
                                   </div>
 
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                        <label class="col-sm-10 control-label">Address</label>
+                                        <label class="col-sm-15 control-label">Address</label>
                                           <%= f.text_field :address, id: :customer_address  , class: "form-control" ,placeholder: "Address"%>
                                     </div>
                                   </div>
 
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                        <label class="col-sm-15 control-label">Customer Place Of Supply</label>
+                                        <label class="col-sm-15 control-label">Place Of Supply</label>
                                          
 
-                                             <%= f.select :cust_place_of_supply, options_for_select(["01-Jammu & Kashmir", "02-Himachal Pradesh","03-Punjab","04-Chandigarh","05-Uttarakhand","06-Haryana","07-Delhi","08-Rajasthan","09-Uttar Pradesh","10-Bihar","11-Sikkim","12-Arunachal Pradesh","13-Nagaland","14-Manipur","15-Mizoram","16-Tripura","17-Meghalaya","18-Assam","19-West Bengal","20-Jharkhand","21-Odisha", "22-Chhattisgarh","23-Madhya Pradesh","24-Gujarat","25-Daman & Diu","26-Dadra & Nagar Haveli","27-Maharashtra","29-Karnataka","30-Goa","31-Lakshdweep","32-Kerala","33-Tamil Nadu","34-Pondicherry","35-Andaman & Nicobar Islands","36-Telangana","37-Andhra Pradesh","97-Other Territory"]),{prompt:true},class: 'form-control', id: :customer_cust_place_of_supply %>
+                                             <%= f.select :cust_place_of_supply, options_for_select(["01-Jammu & Kashmir", "02-Himachal Pradesh","03-Punjab","04-Chandigarh","05-Uttarakhand","06-Haryana","07-Delhi","08-Rajasthan","09-Uttar Pradesh","15-Bihar","11-Sikkim","12-Arunachal Pradesh","13-Nagaland","14-Manipur","15-Mizoram","16-Tripura","17-Meghalaya","18-Assam","19-West Bengal","20-Jharkhand","21-Odisha", "22-Chhattisgarh","23-Madhya Pradesh","24-Gujarat","25-Daman & Diu","26-Dadra & Nagar Haveli","27-Maharashtra","29-Karnataka","30-Goa","31-Lakshdweep","32-Kerala","33-Tamil Nadu","34-Pondicherry","35-Andaman & Nicobar Islands","36-Telangana","37-Andhra Pradesh","97-Other Territory"]),{prompt:true},class: 'form-control', id: :customer_cust_place_of_supply %>
                                     </div>
                                   </div>
 
@@ -92,7 +92,7 @@
 
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                        <label class="col-sm-10 control-label">Name Of Service</label>
+                                        <label class="col-sm-15 control-label">Name Of Service</label>
                                           <%= f.text_field :cust_name_of_service, id: :customer_cust_name_of_service, class: "form-control" ,placeholder: "Name."%>
                                     </div>
                                   </div>
@@ -106,7 +106,7 @@
 
                                   <div class="form-group">
                                     <div class="col-sm-3">
-                                        <label class="col-sm-10 control-label">PAN No</label>
+                                        <label class="col-sm-15 control-label">PAN No</label>
                                           <%= f.text_field :cust_pan_no, id: :customer_cust_pan_no, class: "form-control" ,placeholder: "PAN No"%>
                                     </div>
                                   </div>

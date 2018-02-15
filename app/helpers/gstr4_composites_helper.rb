@@ -1,0 +1,2 @@
+module Gstr4CompositesHelper
+end

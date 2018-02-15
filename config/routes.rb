@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   get 'settings/new'
-
   get 'job_work_inwards/new'
 
   resources :b2b_composites do 
@@ -106,6 +105,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gstr4_composites do
+    collection do
+      get :export
+      post :excel_lists
+    end
+  end
   resources :job_works do 
     member do
      get :show_job_work

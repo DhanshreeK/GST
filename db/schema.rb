@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118044731) do
+ActiveRecord::Schema.define(version: 20180215055645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180118044731) do
     t.string "b2b_composite_value"
     t.string "tax_rate"
     t.string "total_b2b_composite_value"
+    t.string "supply_type"
     t.index ["customer_id"], name: "index_b2b_composites_on_customer_id"
     t.index ["user_id"], name: "index_b2b_composites_on_user_id"
   end

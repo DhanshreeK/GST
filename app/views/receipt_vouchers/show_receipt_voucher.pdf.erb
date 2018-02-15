@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-     width:100%;
-   }
-   table, th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
-     font-size: 12px;
-   }
-   th, td {
-     padding: 2px;
-     text-align: left;
-   }
-   p{
-    width: 250px;
-   }
-   table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
-   table#t01 tr:nth-child(odd) {
-    background-color:#fff;
-  }
-  table#t01 th {
-   background-color: black;
-   color: white;
- }
- 
- img {
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  padding: 3px;
-  width: 150px;
+<style>
+table {
+width:100%;
+}
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+font-size: 12px;
+}
+address{
+  width: 300px; 
+}
+p{
+width: 250px;
+}
+th, td {
+padding: 2px;
+text-align: left;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color:#fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+h5 {
+display:inline;
+}
+img {
+border: 1px solid #ddd;
+border-radius: 1px;
+padding: 3px;
+width: 100px;
 }
 
- h5 {
-   display:inline;
- }
+.gallery-text {
+float: left;
+width: 48%;
+margin: 1%;
+}
+.gallery-text p {
+word-break: break-all;
+}
 </style>
 </head>
 <body>
 
+    <div id="gallery-text">
+    <div class="gallery-text">
+      <%= wicked_pdf_image_tag current_user.party.image %>
+    </div>
 
-
-<%= wicked_pdf_image_tag 'test.jpg' %>
-  <div class="center"><h2><b><font color="black">Receipt Voucher</font></b></h2></div>
-  <div id="heading">
-   
-
-      
-    <div class align ="left">
-      <p><strong>Voucher Number:</strong>
+    <div class="gallery-text" align="right">
+    <p>
+      <p><h2><b><font color="black">Receipt Voucher</font></b></h2>
+        <p><strong>Voucher Number:</strong>
         <%=@receipt_voucher.voucher_no%></p>
           <p> <strong>Against:</strong>
           <%=@receipt_voucher.against%></p>
            <p> <strong>Cash or Check:</strong>
              <%=@receipt_voucher.cash_or_check%></p>
                  <p> <strong>Check Number:</strong>
-             <%=@receipt_voucher.check_no%></p>             
-              <div class align ="right">
+             <%=@receipt_voucher.check_no%>
+        <div id="heading"></p>
+        </div> 
+      </div>
+      </div>
+   
+<div id="gallery-text">
+
+    <div class="gallery-text">
+                 
+              <div class="gallery-text" align="left">
                         <p><strong>Consignee:</strong>
                           <%=current_user.party.party_name%></p>
                           <p><strong>Date:</strong>
@@ -73,7 +91,8 @@
                                  <%=current_user.party.party_pan_no%></p>
                                  <br>
                                </div>
-
+</div>
+</div>
 
       <div class="row">
              <div class="col-md-4">

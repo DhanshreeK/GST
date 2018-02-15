@@ -1,90 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-     width:100%;
-   }
-   table, th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
-     font-size: 12px;
-   }
-   th, td {
-     padding: 2px;
-     text-align: left;
-   }
-   p{
-    width: 250px;
-   }
-   table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
-   table#t01 tr:nth-child(odd) {
-    background-color:#fff;
-  }
-  table#t01 th {
-   background-color: black;
-   color: white;
- }
- h5 {
-   display:inline;
- }
+<style>
+table {
+width:100%;
+}
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+font-size: 12px;
+}
+address{
+  width: 300px; 
+}
+p{
+width: 250px;
+}
+th, td {
+padding: 2px;
+text-align: left;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color:#fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+h5 {
+display:inline;
+}
+img {
+border: 1px solid #ddd;
+border-radius: 1px;
+padding: 3px;
+width: 100px;
+}
+
+.gallery-text {
+float: left;
+width: 48%;
+margin: 1%;
+}
+.gallery-text p {
+word-break: break-all;
+}
 </style>
 </head>
 <body>
 
+
+<div id="gallery-text">
+<div class="gallery-text">
+<%= wicked_pdf_image_tag current_user.party.image %>
+</div>
+<div class="gallery-text" align="right">
+    <p>
+      <p>
   <div class="center"><h2><b><font color="grey">Other Challan</font></b></h2></div>
   <div id="heading">
-   
+  </p>
+    </div> 
+  </div>
 
+  <div id="gallery-text">
+  <div class="gallery-text">
+  <div class align="right">
+  <p>
+  
+  <p><strong>Consigner:</strong>
+    <%=current_user.party.party_name%></p>
+      <p><strong>Date:</strong>
+      <%=@other_challan.challan_date%></p>
       
-    <div class align ="left">
-    <p><strong>Consignee</strong>
-   
-              <p> <strong>Place of Supply</strong>
-             <%=@other_challan.state%></p>
-             <p> <strong>Nature of Processing:</strong>
-              <%=@other_challan.nature_of_processing%></p>
- 
-             
-              <div class align ="right">
-                        <p><strong>Consigner:</strong>
-                          <%=current_user.party.party_name%></p>
-                          <p><strong>Date:</strong>
-                            <%=@other_challan.challan_date%></p>
-                            <p> <strong>Address:</strong>
-                             <%=current_user.party.party_address%></p>
-                             
-                             <p> <strong>GSTIN No:</strong>
-                               <%=current_user.party.party_gstin_no%></p>
-                               <p> <strong>PAN No</strong>
-                                 <%=current_user.party.party_pan_no%></p>
-                                 <br>
-                               </div>
+      <p> <strong>Address:</strong>
+      <%=current_user.party.party_address%></p>
+      
+      <p> <strong>GSTIN No:</strong>
+      <%=current_user.party.party_gstin_no%></p>
+      
+      <p> <strong>PAN No</strong>
+      <%=current_user.party.party_pan_no%></p>
+  </p>
+</div>
+</div>
+  <div class align="left">
 
+  <p>
+  <p><strong>Consignee</strong>
+   <p> <strong>Place of Supply</strong>
+    <%=@other_challan.state%></p>
+      <p> <strong>Nature of Processing:</strong>
+        <%=@other_challan.nature_of_processing%></p>
+    </div>
 
-      <div class="row">
-             <div class="col-md-4">
-             <div class="pull-left">
+    
+    
+
                 <p> <strong>Challan Number</strong>
              <%=@other_challan.challan_no%></p>
               <p> <strong>Challan Date</strong>
              <%=@other_challan.challan_date%></p>
                        <br>
                      </div></div>
-
-                    
-
-                               <div class="table-responsive">
-                                <table class="table table-bordered table-striped">
-                                  <thead>
-                                    <tr>
-                                     <th>Sr No</th>
-                                     <th>Item Description</th>
-                                     <th>Total Amount</th>
-                                   </tr>
-                                 </thead>
+           <div class="table-responsive">
+             <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                   <th>Sr No</th>
+                    <th>Item Description</th>
+                     <th>Total Amount</th>
+                  </tr>
+                </thead>
 
                                  <tbody>
                                  

@@ -238,9 +238,10 @@ def export_excels
       @gstr_type = params[:report][:gstr_type]
         if @start_date.nil? || @end_date.nil?
           flash[:alert] = 'Done'
-          render 'composite_report'
+          render 'composite_export'
         end
     end
+    
 
     def composite_export_excels
       @results = current_user.composite_cd_notes

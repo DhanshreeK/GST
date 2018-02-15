@@ -5,15 +5,16 @@
 table {
 width:100%;
 }
-
-p {
-width: 250px;
-
-}
 table, th, td {
 border: 1px solid black;
 border-collapse: collapse;
 font-size: 12px;
+}
+address{
+  width: 300px; 
+}
+p{
+width: 250px;
 }
 th, td {
 padding: 2px;
@@ -32,22 +33,12 @@ color: white;
 h5 {
 display:inline;
 }
-
-address{
-display: block;
-width: 300px;
-
-}
-
 img {
 border: 1px solid #ddd;
 border-radius: 1px;
 padding: 3px;
-width: 150px;
+width: 100px;
 }
-
-
-
 
 .gallery-text {
 float: left;
@@ -61,14 +52,13 @@ word-break: break-all;
 </head>
 <body>
 
-
 <div id="gallery-text">
 <div class="gallery-text">
-<%= wicked_pdf_image_tag 'test.jpg' %>
+<%= wicked_pdf_image_tag current_user.party.image %>
 </div>
 <div class="gallery-text" align="right">
 <p>
-<p> <h2><strong><font color="black"><%=current_user.party.party_name%><br><%= raw "#{@issue_note.note_type}" if @issue_note.present?  %> </h2></font> <font size="3">(Original for Recipient)</font>
+<p> <h2><strong><font color="black"></strong><%=current_user.party.party_name%><br><%= raw "#{@issue_note.note_type}" if @issue_note.present?  %> </h2></font> <font size="3">(Original for Recipient)</font>
 </p>
 </div> 
 </div>
@@ -81,6 +71,7 @@ word-break: break-all;
 <p>
 <p><strong>Consignee GSTIN No:</strong>
  <%=current_user.party.party_gstin_no%></p>
+
 <address> <strong>Address:</strong>
  <%=current_user.party.party_address%></address>
  </div>

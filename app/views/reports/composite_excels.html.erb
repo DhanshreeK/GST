@@ -23,7 +23,7 @@
                      </div>
                    </div>
                    <div class="panel-body">
-<%= link_to "Export Database to Excel", export_excels_reports_path(start_date:@start_date,end_date:@end_date,gstr_type: @gstr_type,format:"xls"),target: '_blank',class: "btn btn-default" %>  | <%=link_to "Back", composite_report_reports_path,class: 'btn btn-success'%>
+<%= link_to "Export Database to Excel",  composite_excels_reports_path(start_date:@start_date,end_date:@end_date,gstr_type: @gstr_type,format:"xls"),target: '_blank',class: "btn btn-default" %>  | <%=link_to "Back", composite_report_reports_path,class: 'btn btn-success'%>
 </div>
 </div>
 </div>

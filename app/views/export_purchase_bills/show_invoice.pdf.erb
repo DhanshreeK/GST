@@ -10,7 +10,9 @@ border: 1px solid black;
 border-collapse: collapse;
 font-size: 12px;
 }
-
+address{
+  width: 300px; 
+}
 p{
 width: 250px;
 }
@@ -35,9 +37,8 @@ img {
 border: 1px solid #ddd;
 border-radius: 1px;
 padding: 3px;
-width: 150px;
+width: 100px;
 }
-
 
 .gallery-text {
 float: left;
@@ -54,11 +55,10 @@ word-break: break-all;
 
 
 
-
 <div id="gallery-text">
 
 <div class="gallery-text">
-<%= wicked_pdf_image_tag 'test.jpg' %>
+<%= wicked_pdf_image_tag current_user.party.image %>
 </div>
 
 
