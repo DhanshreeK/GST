@@ -4,12 +4,12 @@ class Party < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :customers, dependent: :destroy
   scope :load, ->(id) { where(id: id).take }
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"], :styles => { :small => "160x160" }
 
     def create_user_account
-      if current_user.role ==  "SuperAdmin"
+      # if current_user.role ==  "SuperAdmin"
     	@user = User.create!(first_name: self.party_name, username: self.email, party_id: self.id, password: self.party_no, role: 'Party',email: self.email)
-      end
+      # end
     end
 
    def self.set_party_no

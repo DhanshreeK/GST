@@ -1,3 +1,4 @@
+<%= render 'layouts/custadd'%>
 <div class="pageheader">
 <h1>Nilllrate exempt bill invoice</h1>
 <div class="breadcrumb-wrapper hidden-xs">
@@ -28,6 +29,25 @@
     <form class="form-horizontal">
       <div class="form-group">
 
+                    <%if current_user.role == 'Party'%>
+              <div class="form-group">
+                <div class="col-sm-3">
+                  <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+
+                   <%= render 'layouts/partials/addbutton'%>
+
+                </div>
+
+              </div>
+              <%else%>
+
+              <div class="form-group">
+                <div class="col-sm-3">
+                  <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+                </div>
+              </div>
+              <%end%>
+
             <div class="form-group">
               <div class="col-sm-3">
                 <label class="col-sm-10 control-label">Invoice Number</label>   
@@ -43,20 +63,7 @@
              </div>
 
 
-            <%if current_user.role == 'Party'%>
-              <div class="form-group">
-                <div class="col-sm-3">
-                  <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
-                </div>
-              </div>
-              <%else%>
 
-              <div class="form-group">
-                <div class="col-sm-3">
-                  <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
-                </div>
-              </div>
-              <%end%>
             
 
              <div class="form-group">

@@ -5,15 +5,13 @@
     table {
      width:100%;
    }
-
    p {
-     width: 300px;
-
+       margin-bottom:0px;
    }
-
    address{
     display: block;
     width: 300px;
+    margin:0px;
     
    }
    table, th, td {
@@ -26,8 +24,7 @@
      text-align: left;
    }
    table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
+     background-color: #eee      }
    table#t01 tr:nth-child(odd) {
     background-color:#fff;
   }
@@ -38,106 +35,88 @@
  h5 {
    display:inline;
  }
-
- img {
-  border: 1px solid #ddd;
+.img {
+  border: 0px solid #ddd;
+  float: left;
   border-radius: 1px;
   padding: 3px;
-  width: 150px;
+  width: 200px;
 }
-
-.gallery-text {
-  float: left;
-  width: 48%;
-  margin: 1%;
+.maindiv{
+    width:100%;
 }
-.gallery-text p {
-  word-break: break-all;
+.leftdiv{
+  float:left;
+  width:50%;
+} 
+.rightdiv{
+  float:right;
+  width:30%;
+} 
+.centerdiv{
+  width:100%;
+  margin:0 auto;
+}
+p span{
+  font-weight:700;
+  color:#000;
 }
 </style>
 </head>
 <body>
-
-
-
-
-  <div id="gallery-text">
-    <div class="gallery-text">
-     <%= wicked_pdf_image_tag 'test.jpg' %>
-   </div>
-   <div class="gallery-text" align="right">
-    <p>
-      <p> <h2><strong><font color="black"><%=current_user.party.party_name%> <br>
-      Tax Invoice</strong>  </h2></font> <font size="3">(Original for Recipient)</font>
-      </p>
-    </div> 
-  </div>
-
-
-
-  <div id="gallery-text">
-
-    <div class="gallery-text">
-      <p>
-        <p><strong>Consignee GSTIN Number:</strong>
-          <%=current_user.party.party_gstin_no%></p>
-
-          <address> <strong>Address:</strong>
-           <%=current_user.party.party_address%></address>
-
-           <p><strong>Contact Details:</strong>
-          <%=current_user.party.contact_no%></p>
-
-            <p> <strong>Vehicle Number:</strong>
-               <%=@invoice.vehicle_number%></p>
-
-                <p> <strong>Transportation Mode:</strong>
-               <%=@invoice.transportation_mode%></p>
-           
+  <div class="maindiv">
+      
+          <div class="img">
+           <%= wicked_pdf_image_tag current_user.party.image.url %>
            </div>
-
-
-           <div class="gallery-text" align="right">
-            <p>
-
-            <p> <strong>Consigner:</strong>
-               <%=@invoice.customer.customer_name%></p>
-              <address> <strong>Address:</strong>
-                 <%=@invoice.customer.address%></address>
-                 <p> <strong>GSTIN No:</strong>
-                   <%=@invoice.customer.gstin_no_reg%></p>
-                 </p>
-                 <p> <strong>Place of Supply:</strong>
-                   <%=@invoice.customer.cust_place_of_supply%></p>
-                 </p>
-               </div>
-             <p> <strong>E-Way Bill No</strong>
-               <%=@invoice.ebay_bill_no%></p>
-             </div>
-   <div class align ="right">
-              
-               <br>
-               <br>
+        
+          <div class="leftdiv">
+        
+            <p> <h2><span><%=current_user.party.party_name%> </span><br>
+            Tax Invoice </h2>(Original for Recipient)
+            <address> <span>Address:</span>
+                     <%=current_user.party.party_address%></address>
+                      <p><span>Consignee GSTIN Number:</span>
+                      <%=current_user.party.party_gstin_no%></p>
+                     <p><span>Contact Details:</span>
+                    <%=current_user.party.contact_no%></p>
+                    <p> <span>Vehicle Number:</span>
+                       <%=@invoice.vehicle_number%></p>
+                        <p> <span>Transportation Mode:</span>
+                       <%=@invoice.transportation_mode%></p>
+            </p>
+          </div> 
+  </div> 
+  <div class="maindiv">
+            
+              <div class="rightdiv">
+                      <p> <span>Consigner:</span>
+                         <%=@invoice.customer.customer_name%></p>
+                      <address> <span>Address:</span>
+                      <%=@invoice.customer.address%></address>
+                      <p> <span>GSTIN No:</span>
+                      <%=@invoice.customer.gstin_no_reg%>
+                      </p>
+                      <p> <span>Place of Supply:</span>
+                      <%=@invoice.customer.cust_place_of_supply%></p>
+                      <p> <span>E-Way Bill No</span>
+                      <%=@invoice.ebay_bill_no%></p>
+              </div> 
                
-             </div>  
-             <div class align="left">
-
-              <p><strong>Invoice Date:</strong>
-                <%=@invoice.date%></p>
-                <p><strong>Invoice no:</strong>
-                  <%=@invoice.invoice_no%></p><br>
+    </div>
+              <div class="maindiv">
+                <div class="leftdiv">
+                      <p><span>Invoice Date:</span>
+                      <%=@invoice.date%></p>
+                      <p><span>Invoice no:</span>
+                      <%=@invoice.invoice_no%></p>
                 </div>
-              </div>  
-            </div>  
-
-
-
+              </div>
             <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
               <thead>
                 <tr>
                   <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="12"><center>Tax Invoice</center></th>
                 </tr>
-
                 <th>Sr No</th>
                 <th>Item Description</th>
                 <th>Item Code</th>
@@ -160,7 +139,6 @@
                 <td><%= i.item.dogns%></td>
                 <td><%= i.item.item_code%></td>
                 <td><%= i.item.item_hsn_no%></td>
-
                 <td>&#8377;<%= i.unit_price%></td>
                 <td><%= i.quantity%></td>
                 <td>&#8377;<%= i.net_amt%></td>
@@ -175,7 +153,6 @@
               <% tax_amt += i.tax_amt.to_f%>
               <%total_amt += i.total_amt.to_f%>
               <% end %>
-
               <tr>
               <td></td>
                 <td></td>
@@ -188,12 +165,9 @@
                 <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
                 <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
              
-
                 <td>Total Tax: &#8377;<%=tax_amt%></td>
                 <td>Total Amount: &#8377;<%= total_amt%></td>
               </tr>
-
-
             </div>
           </div>
         </div>
@@ -201,30 +175,18 @@
     </div>
   </thead>
 </table>
-
            <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
     <thead>
-
       <tr>
         <th><h3>Amount in Words:-   </h3> <h3><%= total_amt.to_i.to_words.split.map(&:capitalize).join(' ')%> Only <br>Cess: &nbsp;<%= @invoice.total_invoice_value%></th>
       </tr>
-
       <tr>
         <th> 
-
           <H4 align="right">Note <%=@invoice.narration%></H4>
           <H4 align="left">Terms and Conditions <%=@invoice.terms_and_conditions%></H4>
           <h4 align="right">&nbsp;</h4>
-
           <h4 align="right">Authorized Signatory</h4> 
-
-
         </th>
       </tr>
-
     </thead>
   </table>
-
-
- 
-
