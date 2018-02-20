@@ -34,6 +34,7 @@
       <th>Party Joining Date</th>
       <th>Party Due Date</th>
           <%if current_user.role == 'SuperAdmin'%> 
+           <th>Party Type</th>
           <th>Status</th>
           <th>Edit</th>
           <th>Delete</th>
@@ -59,6 +60,7 @@
        <%elsif party.party_status == true %>
       <td><%=link_to 'Activate', parties_path(:param1 => true, :id => party.id),style: 'color: green'%></td>
     <%end%>
+    <td><%= party.party_type%></td>
       <td><%=link_to 'Edit', edit_party_path(party), class: 'btn btn-link'%></td>
       <td><%=link_to 'Destroy', party_path(party), method: :delete,class: 'btn btn-link'%></td>
   <%end%>

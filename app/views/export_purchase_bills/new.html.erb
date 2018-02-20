@@ -1,5 +1,5 @@
 <div class="pageheader">
-                <h1>Export purchase bill invoice</h1>
+                <h1>Purchase Order Invoice</h1>
                 <div class="breadcrumb-wrapper hidden-xs">
                     <span class="label">You are here:</span>
                     <ol class="breadcrumb">
@@ -11,153 +11,202 @@
                 </div>
             </div>
 
-              <section id="main-content" class="animated fadeInUp">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">New Invoice</h3>
-                                <div class="actions pull-right">
-                                 <i class="fa fa-expand"></i>
-                                    <i class="fa fa-chevron-down"></i>
-                                    <i class="fa fa-times"></i>
-                                </div>
-                            </div>
-                           <div class="panel-body">
-                            <%= nested_form_for @export_purchase_bill_invoice, url: {action:'create', controller: 'export_purchase_bills'} do |f|%>
+             <section id="main-content" class="animated fadeInUp">
+<div class="row">
+<div class="col-md-12">
+  <div class="panel panel-info">
+      <div class="panel-heading">
+          <h3 class="panel-title">New Invoice</h3>
+          <div class="actions pull-right">
+           <i class="fa fa-expand"></i>
+              <i class="fa fa-chevron-down"></i>
+              <i class="fa fa-times"></i>
+          </div>
+      </div>
+   <div class="panel-body">
+   <%= nested_form_for @export_purchase_bill_invoice, url: {action:'create', controller: 'export_purchase_bills'} do |f|%>    <form class="form-horizontal">
+      <div class="form-group">
+<div class="col-sm-12">
+ <%if current_user.role == 'Party'%>
 
-                                        <form class="form-horizontal">
-                                          <div class="form-group">
-                                          
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+    </div>
+  </div>
+  <%else%>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+    </div>
+  </div>
+  <%end%>  
 
-                                          <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-10 control-label">Invoice Number</label>   
-                                                <%= f.text_field :purchase_no,class: 'form-control'%>
-                                            </div>
-                                           </div>
+   <div class="form-group">
+      <div class="col-sm-3">
+        <label class="col-sm-15 control-label">Place of Supply</label>   
+      <input type="cust_place_of_supply" name="cust_place_of_supply" id="cust_place_of_supply" class="form-control">
+      </div>
+    </div>
 
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-10 control-label">Date</label>   
-                                                <%= f.date_field :date,value: Date.today, class: 'form-control'%>
-                                            </div>
-                                           </div>
-
-
-                                           <%if current_user.role == 'Party'%>
-
-                                            <div class="form-group">
-                                              <div class="col-sm-3">
-                                                <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
-                                              </div>
-                                            </div>
-                                            <%else%>
-
-                                            <div class="form-group">
-                                              <div class="col-sm-3">
-                                                <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
-                                              </div>
-                                            </div>
-                                            <%end%>
-                                          
-
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-6 control-label">Address</label>   
-                                                                           <input type="address" name="address" id="address" class="form-control"></td> </div>
-
-                                            </div>
-                                           </div>
-
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-6 control-label">GST No</label>   
-                                                <input type="gstin_no_reg" name="gstin_no_reg" id="gstin_no_reg" class="form-control"></td>
-                                            </div>
-                                           </div>
-
-                                           <div class="form-group">
-                                            <div class="col-sm-3">
-                                              <label class="col-sm-6 control-label">PAN No</label>   
-                                                <input type="cust_pan_no" name="cust_pan_no" id="cust_pan_no" class="form-control"></td>
-                                            </div>
-                                           </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-6 control-label">GST No</label>   
+      <input type="gstin_no_reg" name="gstin_no_reg" id="gstin_no_reg" class="form-control"></td>
+    </div>
+  </div>
 
 
 
-                                  <br><br><br><br><br><br>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-6 control-label">Address</label>   
+      <input type="address" name="address" id="address" class="form-control"></td>
+    </div>
+  </div>
 
 
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-10 control-label">Invoice Number</label>   
+       <%= f.text_field :purchase_no,class: 'form-control'%>
+    </div>
+  </div>
 
-                    <div class="panel-body">
+   <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-15 control-label">Select Business Type</label>    
+             <%=f.select :bill_type ,options_for_select(["b2b","b2cl","b2cs"]), {prompt:true},class: "form-control"%>
+    </div>
+  </div> 
 
-                            <div class="table-responsive">
-                              <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
-                                <thead>
-                                 <tr>
-                                      <th width="135"><h6>Description</h6></th>
-                                      <th width="185"><h6>Unit-Price</h6></th>
-                                      <th width="185"><h6>Quantity</h6></th>
-                                      <th width="185"><h6>Net Amt</h6></th>
-                                  
-                                   
-                                      <th width="185"><h6>Total Amt</h6></th>
-                                      <th><h6>Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></th>
-                                    </tr>
-                                </thead>
-                            
-                              </table>
-            
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-10 control-label">Date</label>   
+      <%= f.date_field :date,value: Date.today, class: 'form-control'%>
+    </div>
+  </div>
 
-                        <%= f.fields_for :export_purchase_bill_items, :wrapper => false do |invoice_item| %>
-                                
-                             <div class="table-responsive">
-                              <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
-                                    <colgroup>
-                                      <col class="one"/>
-                                      <col class="two"/>
-                                      <col class="three"/>
-                                      <col class="four"/>
-                                      <col class="five"/>
-                                      <col class="six"/>
-                                      <col class="seven"/>
-                                      <col class="eight"/>
-                                    </colgroup>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-15 control-label">Transportation Mode</label>   
+      <%= f.text_field :transportation_mode, class: 'form-control'%>
+    </div>
+  </div>
 
-                                    
-                                    <tr class="fields">
-                                  
-                                      
-                                  <%if current_user.role == 'Party'%>
-                                   <td> <%=invoice_item.select :item_id ,current_user.items.all.collect{|i| [i.dogns,i.rate, i.id]}, {prompt:true},class: "select"%></td>
-                                   <%else%>
-                                   <td> <%=invoice_item.select :item_id ,Item.all.collect{|i| [i.dogns,i.rate, i.id]}, {prompt:true},class: "select"%></td>
-                                   <%end%>
-                                  <td><%= invoice_item.text_field :unit_price, id: :rate, class: 'form-control'%></td>
-                                  <td><%= invoice_item.text_field :quantity, id: :qty, class: 'form-control'%></td>
-                                  <td><%= invoice_item.text_field :net_amount, id: :net_amount, class: 'form-control'%></td>
-                               
-                                  
-                                  <td><%= invoice_item.text_field :total_amt, id: :total_amt, class: 'form-control'%></td>
-                          
-                                 <td><%= invoice_item.link_to_remove "Remove", class: 'btn btn-info' %></td>
-                                    </tr>
-                                  </table>
-
-                                </div>
-    <!--grid_table-->
-                    
+   <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-10 control-label">Vehicle Number</label>   
+      <%= f.text_field :vehicle_number, class: 'form-control'%>
+    </div>
+  </div>
 
 
-<% end %>
-<td><%= f.link_to_add "Add Item", :export_purchase_bill_items , class: 'btn btn-danger' %></td>
-<div class="pull-right">
-<p><%= f.submit "Create Invoice", class: 'btn btn-success' %></p>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <label class="col-sm-10 control-label"><b>RCM</b></label>   
+      <%= f.select :rcm,options_for_select(['Y','N']),{prompt:true},class: 'form-control'%>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+            <div class="col-sm-3">
+              <label class="col-sm-10 control-label"><b>Narration</b></label>   
+              <%= f.text_area :narration, placeholder: 'Narration',class: 'form-control'%>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class="col-sm-3">
+              <label class="col-sm-15 control-label"><b>Terms And Conditions</b></label>   
+              <%= f.text_area :terms_and_conditions, placeholder: 'Terms And Conditions',class: 'form-control'%>
+            </div>
+          </div>
+  </div>
+      
+<br><br><br><br><br><br>
+
 </div>
-<% end %>
+  <div class="panel-body">
 
-              </section>
+       <div class="col-sm-12">
+      <div class="table-responsive">
+        <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
+          <thead>
+           <tr>
+            <th><h6>Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></th>
+            <th><h6>Item Code</h6></th>
+            <th><h6>Unit-Price</h6></th>
+            <th><h6>Quantity</h6></th>
+            <th><h6>Net Amt</h6></th>
+            <th><h6>SGST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></th>
+            <th><h6>CGST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></th>
+            <th><h6>Tax Rate</h6></th>
+            <th><h6>Tax Amt&nbsp;</h6></th>
+            <th><h6>Total Amt</h6></th>
+            <th><h6>Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></th>
+          </tr>
+        </thead>
+        
+      </table>
+    </div>
+
+    <%= f.fields_for :export_purchase_bill_items, :wrapper => false do |invoice_item| %>    
+    <div class="table-responsive">
+      <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
+        <colgroup>
+        <col class="one"/>
+        <col class="two"/>
+        <col class="three"/>
+        <col class="four"/>
+        <col class="five"/>
+        <col class="six"/>
+        <col class="seven"/>
+        <col class="eight"/>
+        <col class="nine"/>
+      </colgroup>
+
+      
+      <tr class="fields">
+
+        <%if current_user.role == 'Party'%>
+        <td> <%=invoice_item.select :item_id ,current_user.items.all.collect{|i| [i.dogns,i.rate, i.id]}, {prompt:true},class: "select"%></td>
+        <%else%>
+        <td> <%=invoice_item.select :item_id ,Item.all.collect{|i| [i.dogns,i.rate, i.id]}, {prompt:true},class: "select"%></td>
+        <%end%>
+        <td><%=text_field_tag :item_code, "",id: :item_code, class: 'form-control'%></td>
+       <td><%= invoice_item.text_field :unit_price, id: :rate, class: 'form-control'%></td>
+            <td><%= invoice_item.text_field :quantity, id: :quantity, class: 'form-control'%></td>
+            <td><%= invoice_item.text_field :net_amount, id: :net_amount, class: 'form-control'%></td>
+            <td><%= text_field_tag :sgst, "", class: 'form-control'%></td>
+            <td><%= text_field_tag :cgst, "", class: 'form-control'%></td>
+            <td><%= invoice_item.text_field :tax_rate, id: :tax_rate, class: 'form-control'%></td>
+            <td><%= invoice_item.text_field :tax_amt, id: :tax_amt, class: 'form-control'%></td>
+            <td><%= invoice_item.text_field :total_amt, id: :total_amt, class: 'form-control'%></td>
+        <td><%= invoice_item.link_to_remove "Remove", class: 'btn btn-info' %></td>
+      </tr>
+    </table>
+
+  </div>
+  <!--grid_table-->
+  
+
+
+  <% end %>
+<td><%= f.link_to_add "Add Item", :export_purchase_bill_items , class: 'btn btn-danger' %></td>  <div class="pull-right">
+    <p><%= f.submit "Create Invoice", class: 'btn btn-success' %></p>
+  </div>
+   <% end %>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 </div>
 </div>
 </div>
@@ -195,6 +244,7 @@ $(document).ready(function() {
       $("#address").val(data[0]);
       $("#gstin_no_reg").val(data[1]);
       $("#cust_pan_no").val(data[2]);
+      $("#cust_place_of_supply").val(data[3]);
       // $("#uom").val(data[1]);
       // $("#rate").val(data[2]);
      
@@ -225,6 +275,8 @@ $(document).on("change", ".select", function () {
               container.find("#rate").val(item[0]);
               container.find("#cgst").val(item[1]);
               container.find("#sgst").val(item[2]);
+              container.find("#item_code").val(item[3]);
+
 
         }
     });
@@ -235,23 +287,25 @@ $(document).on("change", ".select", function () {
 
 <% content_for :javascript do %>
 <script type="text/javascript">
- $(document).on("keyup", "#rate, #qty", function() {
-  container = elem.parents("tr.fields");
-   var val1 = +container.find("#rate").val();
-   var val2 = +container.find("#qty").val();
- 
-  
+$(document).on("keyup", "#rate, #quantity", function() {
+container = elem.parents("tr.fields");
+var val1 = +container.find("#rate").val();
+var val2 = +container.find("#quantity").val();
+var sval = +container.find("#sgst").val();
+var cval = +container.find("#cgst").val();
+var val3 = sval+cval;
++container.find("#tax_rate").val(val3);
++container.find("#net_amount").val(val1*val2);
++container.find('#tax_amt').val(val3*val1*val2/100);
+var ans = (val1*val2 + val3*val1*val2/100);
++container.find('#total_amt').val(ans);
+});
 
-   +container.find("#net_amount").val(val1*val2);
-   +container.find("#total_amt").val(val1*val2);
 
-  });
-
-
- function deleteRow(btn) {
-        var row = btn.parentNode;
-        row.parentNode.removeChild(row);
- }
+function deleteRow(btn) {
+    var row = btn.parentNode;
+    row.parentNode.removeChild(row);
+}
 
 </script>
 <%end%>
@@ -259,17 +313,15 @@ $(document).on("change", ".select", function () {
 <% content_for :javascript do %>
 <script type="text/javascript">
 $(document).on('nested:fieldAdded', function(event){
-  // this field was just inserted into your form
-  var field = event.field; 
-  var selectField = field.find('.select');
-     selectField.select2();
-  // and activate datepicker on it
+// this field was just inserted into your form
+var field = event.field; 
+var selectField = field.find('.select');
+ selectField.select2();
+// and activate datepicker on it
 //  dateField.datepicker();
 })
 </script>
 <% end %>
-
-
 
 <% content_for :javascript do %>
 <script type="text/javascript">

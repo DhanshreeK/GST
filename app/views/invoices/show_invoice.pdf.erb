@@ -35,6 +35,7 @@
  h5 {
    display:inline;
  }
+
 .img {
   border: 0px solid #ddd;
   float: left;
@@ -42,6 +43,8 @@
   padding: 3px;
   width: 200px;
 }
+
+
 .maindiv{
     width:100%;
 }
@@ -57,13 +60,16 @@
   width:100%;
   margin:0 auto;
 }
+>>>>>>> sale_bill_branch
 p span{
   font-weight:700;
   color:#000;
 }
+
 </style>
 </head>
 <body>
+
   <div class="maindiv">
       
           <div class="img">
@@ -78,17 +84,23 @@ p span{
                      <%=current_user.party.party_address%></address>
                       <p><span>Consignee GSTIN Number:</span>
                       <%=current_user.party.party_gstin_no%></p>
+
                      <p><span>Contact Details:</span>
                     <%=current_user.party.contact_no%></p>
+
                     <p> <span>Vehicle Number:</span>
                        <%=@invoice.vehicle_number%></p>
+
+                     
                         <p> <span>Transportation Mode:</span>
                        <%=@invoice.transportation_mode%></p>
             </p>
           </div> 
   </div> 
+
   <div class="maindiv">
             
+
               <div class="rightdiv">
                       <p> <span>Consigner:</span>
                          <%=@invoice.customer.customer_name%></p>
@@ -101,6 +113,7 @@ p span{
                       <%=@invoice.customer.cust_place_of_supply%></p>
                       <p> <span>E-Way Bill No</span>
                       <%=@invoice.ebay_bill_no%></p>
+
               </div> 
                
     </div>
@@ -110,8 +123,13 @@ p span{
                       <%=@invoice.date%></p>
                       <p><span>Invoice no:</span>
                       <%=@invoice.invoice_no%></p>
+
                 </div>
+
               </div>
+
+
+
             <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
               <thead>
                 <tr>

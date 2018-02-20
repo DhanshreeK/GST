@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116102939) do
+ActiveRecord::Schema.define(version: 20180215055645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180116102939) do
     t.string "b2b_composite_value"
     t.string "tax_rate"
     t.string "total_b2b_composite_value"
+    t.string "supply_type"
     t.index ["customer_id"], name: "index_b2b_composites_on_customer_id"
     t.index ["user_id"], name: "index_b2b_composites_on_user_id"
   end
@@ -132,6 +133,7 @@ ActiveRecord::Schema.define(version: 20180116102939) do
     t.bigint "user_id"
     t.string "register_type"
     t.string "note_type"
+    t.string "service_code"
     t.index ["customer_id"], name: "index_composite_cd_notes_on_customer_id"
     t.index ["user_id"], name: "index_composite_cd_notes_on_user_id"
   end
@@ -319,6 +321,12 @@ ActiveRecord::Schema.define(version: 20180116102939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "bill_type"
+    t.string "transportation_mode"
+    t.string "vehicle_number"
+    t.string "rcm"
+    t.string "terms_and_conditions"
+    t.string "narration"
     t.index ["customer_id"], name: "index_export_purchase_bills_on_customer_id"
     t.index ["user_id"], name: "index_export_purchase_bills_on_user_id"
   end
@@ -374,11 +382,9 @@ ActiveRecord::Schema.define(version: 20180116102939) do
     t.datetime "updated_at", null: false
     t.bigint "invoice_id"
     t.string "total_quantity"
-    t.bigint "user_id"
     t.bigint "issue_note_id"
     t.index ["invoice_id"], name: "index_hsn_summary_for_sale_bills_on_invoice_id"
     t.index ["issue_note_id"], name: "index_hsn_summary_for_sale_bills_on_issue_note_id"
-    t.index ["user_id"], name: "index_hsn_summary_for_sale_bills_on_user_id"
   end
 
   create_table "invoice_items", force: :cascade do |t|
@@ -674,14 +680,13 @@ ActiveRecord::Schema.define(version: 20180116102939) do
     t.string "type"
     t.string "pos"
     t.string "bill_type"
-    t.string "invoice_value"
-    t.string "tax_rate"
-    t.string "total_invoice_value"
     t.string "transportation_mode"
     t.string "vehicle_number"
     t.string "rcm"
     t.string "narration"
     t.string "terms_and_conditions"
+    t.string "invoice_value"
+    t.string "tax_rate"
     t.index ["customer_id"], name: "index_purchase_bills_on_customer_id"
     t.index ["user_id"], name: "index_purchase_bills_on_user_id"
   end
@@ -837,7 +842,6 @@ ActiveRecord::Schema.define(version: 20180116102939) do
   add_foreign_key "export_purchase_bills", "users"
   add_foreign_key "hsn_summary_for_sale_bills", "invoices"
   add_foreign_key "hsn_summary_for_sale_bills", "issue_notes"
-  add_foreign_key "hsn_summary_for_sale_bills", "users"
   add_foreign_key "invoices", "users"
   add_foreign_key "issue_note_items", "issue_notes"
   add_foreign_key "issue_note_items", "items"

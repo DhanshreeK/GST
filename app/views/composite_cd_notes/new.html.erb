@@ -210,7 +210,8 @@
       <%else%>
       <div class="form-group">
         <div class="col-sm-3">
-          <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+          <label class="col-sm-15 control-label">Search Customers</label>       
+              <%=f.select :customer_id ,Customer.all.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
         </div>
       </div>
       <%end%>  
@@ -239,7 +240,7 @@
 
       <div class="form-group">
         <div class="col-sm-3">
-          <label class="col-sm-15 control-label">Refund Voucher Number</label>   
+          <label class="col-sm-20 control-label">Refund Voucher No</label>   
           <%= f.text_field :refund_voucher_number,placeholder: 'Refund Voucher Number',class: 'form-control'%>
         </div>
       </div>
@@ -258,6 +259,14 @@
           <%= f.text_field :payment_voucher_number,placeholder:'Payment Voucher Number', class: 'form-control'%>
         </div>
       </div>
+
+       <div class="form-group">
+        <div class="col-sm-3">
+          <label class="col-sm-20 control-label">Service Code</label>   
+          <%= f.text_field :service_code,placeholder:'Service Code', class: 'form-control'%>
+        </div>
+      </div>
+
 
 
 
@@ -305,7 +314,7 @@
 
       <div class="form-group">
         <div class="col-sm-3">
-          <label class="col-sm-35 control-label">Reason For Issuing Document</label>   
+        <label class="col-sm-35 control-label">Reason For Issuing Document</label>   
           <%= f.text_field :reason_for_issuing_document,placeholder:'Reason For Issuing Document', class: 'form-control'%>
         </div>
       </div>
@@ -317,7 +326,7 @@
 
            <div class="col-sm-12">
           <div class="table-responsive">
-            <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
+            <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="150%">
               <thead>
                <tr>
                 <th><h6>Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></th>
@@ -339,7 +348,7 @@
         <%= f.fields_for :composite_cd_note_items, :wrapper => false do |invoice_item| %>
         
         <div class="table-responsive">
-          <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="100%">
+          <table id="example"  class="table table-bordered table-striped" cellspacing="0" width="150%">
             <colgroup>
             <col class="one"/>
             <col class="two"/>

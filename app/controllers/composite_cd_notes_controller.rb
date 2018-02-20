@@ -100,7 +100,7 @@ class CompositeCdNotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:composite_cd_note).permit(:register_type ,:note_type,:total_invoice_value,
+      params.require(:composite_cd_note).permit(:service_code, :register_type ,:note_type,:total_invoice_value,
         :invoice_type,:tax_rate,
         :rcm,:user_id,:customer_id,
          :invoice_number,:invoice_date,

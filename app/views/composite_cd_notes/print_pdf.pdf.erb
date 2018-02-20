@@ -1,58 +1,58 @@
-<!DOCTYPE html>
+[<!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-     width:100%;
-   }
+<style>
+table {
+width:100%;
+}
 
-   p {
-     width: 300px;
+p {
+width: 300px;
 
-   }
+}
 
-   address{
-    display: block;
-    width: 300px;
-    
-   }
-   table, th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
-     font-size: 12px;
-   }
-   th, td {
-     padding: 2px;
-     text-align: left;
-   }
-   table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
-   table#t01 tr:nth-child(odd) {
-    background-color:#fff;
-  }
-  table#t01 th {
-   background-color: black;
-   color: white;
- }
- h5 {
-   display:inline;
- }
+address{
+display: block;
+width: 300px;
 
- img {
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  padding: 3px;
-  width: 150px;
+}
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+font-size: 12px;
+}
+th, td {
+padding: 2px;
+text-align: left;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color:#fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+h5 {
+display:inline;
+}
+
+img {
+border: 1px solid #ddd;
+border-radius: 1px;
+padding: 3px;
+width: 150px;
 }
 
 .gallery-text {
-  float: left;
-  width: 48%;
-  margin: 1%;
+float: left;
+width: 48%;
+margin: 1%;
 }
 .gallery-text p {
-  word-break: break-all;
+word-break: break-all;
 }
 </style>
 </head>
@@ -61,170 +61,175 @@
 
 
 
-  <div id="gallery-text">
-    <div class="gallery-text">
-     <%= wicked_pdf_image_tag 'test.jpg' %>
-   </div>
-   <div class="gallery-text" align="right">
-    <p>
-      <p> <h2><strong><font color="black"><%=current_user.party.party_name%> <br>
-      Credit/DebitNote Invoice</strong>  </h2></font> <font size="3">(Original for Recipient)</font>
-      </p>
-    </div> 
-  </div>
+<div id="gallery-text">
+<div class="gallery-text">
+<%= wicked_pdf_image_tag 'test.jpg' %>
+</div>
+<div class="gallery-text" align="right">
+<p>
+<p> <h2><strong><font color="black"><%=current_user.party.party_name%> <br>
+Credit/DebitNote Invoice</strong>  </h2></font> <font size="3">(Original for Recipient)</font>
+</p>
+</div> 
+</div>
 
 
 
-  <div id="gallery-text">
+<div id="gallery-text">
 
-    <div class="gallery-text">
-      <p>
-        <p><strong>Consignee GSTIN Number:</strong>
-          <%=current_user.party.party_gstin_no%></p>
+<div class="gallery-text">
+<p>
+<p><strong>Consignee GSTIN Number:</strong>
+<%=current_user.party.party_gstin_no%></p>
 
-          <address> <strong>Address:</strong>
-           <%=current_user.party.party_address%></address>
+<address> <strong>Address:</strong>
+ <%=current_user.party.party_address%></address>
 
-           <p><strong>Contact Details:</strong>
-          <%=current_user.party.contact_no%></p>
+ <p><strong>Contact Details:</strong>
+<%=current_user.party.contact_no%></p>
+
 
  
-           
-           </div>
+ </div>
 
 
-           <div class="gallery-text" align="right">
-            <p>
+ <div class="gallery-text" align="right">
+  <p>
 
-            <p> <strong>Consigner:</strong>
-               <%=@composite_cd_note.customer.customer_name%></p>
-              <address> <strong>Address:</strong>
-                 <%=@composite_cd_note.customer.address%></address>
-                 <p> <strong>GSTIN No:</strong>
-                   <%=@composite_cd_note.customer.gstin_no_reg%></p>
-                 </p>
-                 <p> <strong>Place of Supply:</strong>
-                   <%=@composite_cd_note.customer.cust_place_of_supply%></p>
-                 </p>
-                         </div>
-   <div class align ="right">
-              
-               <br>
-               <br>
-               
-             </div>  
-             <div class align="left">
+  <p> <strong>Consigner:</strong>
+     <%=@composite_cd_note.customer.customer_name%></p>
+    <address> <strong>Address:</strong>
+       <%=@composite_cd_note.customer.address%></address>
+       <p> <strong>GSTIN No:</strong>
+         <%=@composite_cd_note.customer.gstin_no_reg%></p>
+       </p>
+       <p> <strong>Place of Supply:</strong>
+         <%=@composite_cd_note.customer.cust_place_of_supply%></p>
+       </p>
+               </div>
+<div class align ="right">
+    
+     <br>
+     <br>
+     
+   </div>  
+   <div class align="left">
 
-            <p><strong>Refund Voucher Number:</strong>
-              <%=@composite_cd_note.refund_voucher_number%></p>
-              <p><strong>Refund Voucher Date:</strong>
-                <%=@composite_cd_note.refund_voucher_date%></p>
-                <p> <strong>Payment Voucher Number:</strong>
-                 <%=@composite_cd_note.payment_voucher_number %></p>
-                   <p> <strong>Document type:</strong>
-                     <%=@composite_cd_note.document_type %></p>
-                <p> <strong>Reason for Issuing Documents:</strong>
-                     <%=@composite_cd_note.reason_for_issuing_document %></p>
+  <p><strong>Refund Voucher Number:</strong>
+    <%=@composite_cd_note.refund_voucher_number%></p>
+    <p><strong>Refund Voucher Date:</strong>
+      <%=@composite_cd_note.refund_voucher_date%></p>
+      <p> <strong>Payment Voucher Number:</strong>
+       <%=@composite_cd_note.payment_voucher_number %></p>
+         <p> <strong>Document type:</strong>
+           <%=@composite_cd_note.document_type %></p>
+      <p> <strong>Reason for Issuing Documents:</strong>
+           <%=@composite_cd_note.reason_for_issuing_document %></p>
 <p> <strong>Supply Type:</strong>
-                     <%=@composite_cd_note.supply_type %></p>
-                     <p> <strong>Reverse Charge:</strong>
-                     <%=@composite_cd_note.reverse_charge %></p>
-                      <p> <strong>Refund Voucher Value:</strong>
-                     <%=@composite_cd_note.refund_voucher_value %></p>
-                     <p> <strong>Register type:</strong>
-                     <%=@composite_cd_note.register_type %></p>
-                </div>
-              </div>  
-            </div>  
-
-
-
-            <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
-              <thead>
-                <tr>
-                  <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="11"><center> Composite Invoice</center></th>
-                </tr>
-
-                <th>Sr No</th>
-                <th>Item Description</th>
-                <th>HSN/SAC</th>
-
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Net Amount</th>
-                <th>Tax Rate</th>
-                <th>CGST</th>
-                <th>SGST</th>
-                <th>Tax Amount</th>
-                <th>Total Amount</th>
-              </tr>
-              <%tax_amt = 0%>
-              <%total_amt = 0%>
-              <% rate = 0 %>
-              <% @composite_cd_note.composite_cd_note_items.each_with_index do |i,n|%>
-              <tr>
-                <td><%= n + 1 %></td>
-                <td><%= i.item.dogns%></td>
-                <td><%= i.item.item_hsn_no%></td>
-
-                <td>&#8377;<%= i.unit_price%></td>
-                <td><%= i.quantity%></td>
-                <td>&#8377;<%= i.net_amt%></td>
-                 <td><%= i.tax_rate%>&#37;</td>
-                <td>&#8377;<%=ans = i.tax_amt.to_f/2%></td>
-                <td>&#8377;<%=ans%></td>
-               
-                <% rate = rate + i.tax_rate.to_f %>
-                <td>&#8377;<%= i.tax_amt%></td>
-                <td align="right">&#8377;<%= i.total_amt%></td>
-              </tr>
-              <% tax_amt += i.tax_amt.to_f%>
-              <%total_amt += i.total_amt.to_f%>
-              <% end %>
-
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                   <td>Tax Rate: &#8377;<%= rate %></td>
-                <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
-                <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
-             
-
-                <td>Total Tax: &#8377;<%=tax_amt%></td>
-                <td>Total Amount: &#8377;<%= total_amt%></td>
-              </tr>
-
-            </div>
-          </div>
-        </div>
+           <%=@composite_cd_note.supply_type %></p>
+           <p> <strong>Reverse Charge:</strong>
+           <%=@composite_cd_note.reverse_charge %></p>
+            <p> <strong>Refund Voucher Value:</strong>
+           <%=@composite_cd_note.refund_voucher_value %></p>
+           <p> <strong>Register type:</strong>
+           <%=@composite_cd_note.register_type %></p>
+           <p> <strong>Service Code:</strong>
+           <%=@composite_cd_note.service_code %></p>
       </div>
-    </div>
-  </thead>
+    </div>  
+  </div>  
+
+
+
+  <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
+    <thead>
+      <tr>
+        <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="12"><center> Composite Invoice</center></th>
+      </tr>
+
+      <th>Sr No</th>
+      <th>Item Description</th>
+      <th>Item Code</th>
+      <th>HSN/SAC</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Net Amount</th>
+      <th>Tax Rate</th>
+      <th>CGST</th>
+      <th>SGST</th>
+      <th>Tax Amount</th>
+      <th>Total Amount</th>
+    </tr>
+    <%tax_amt = 0%>
+    <%total_amt = 0%>
+    <% rate = 0 %>
+    <% @composite_cd_note.composite_cd_note_items.each_with_index do |i,n|%>
+    <tr>
+      <td><%= n + 1 %></td>
+      <td><%= i.item.dogns%></td>
+      <td><%= i.item.item_code%></td>
+      <td><%= i.item.item_hsn_no%></td>
+
+      <td>&#8377;<%= i.unit_price%></td>
+      <td><%= i.quantity%></td>
+      <td>&#8377;<%= i.net_amt%></td>
+       <td><%= i.tax_rate%>&#37;</td>
+      <td>&#8377;<%=ans = i.tax_amt.to_f/2%></td>
+      <td>&#8377;<%=ans%></td>
+     
+      <% rate = rate + i.tax_rate.to_f %>
+      <td>&#8377;<%= i.tax_amt%></td>
+      <td align="right">&#8377;<%= i.total_amt%></td>
+    </tr>
+    <% tax_amt += i.tax_amt.to_f%>
+    <%total_amt += i.total_amt.to_f%>
+    <% end %>
+
+    <tr>
+    <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+         <td>Tax Rate: &#8377;<%= rate %></td>
+      <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
+      <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
+   
+
+      <td>Total Tax: &#8377;<%=tax_amt%></td>
+      <td>Total Amount: &#8377;<%= total_amt%></td>
+    </tr>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</thead>
 </table>
 
-           <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
-    <thead>
+ <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
+<thead>
 
-      <tr>
-        <th><h3>Amount in Words:- </h3> <h3><%= total_amt.to_i.to_words.split.map(&:capitalize).join(' ')%> Only   <br>    Cess Amount : <%= @composite_cd_note.total_invoice_value%>
+<tr>
+<th><h3>Amount in Words:- </h3> <h3><%= total_amt.to_i.to_words.split.map(&:capitalize).join(' ')%> Only   <br>    Cess Amount : <%= @composite_cd_note.total_invoice_value%>
 </th>
 
-      </tr>
+</tr>
 
-      <tr>
-        <th> 
-          <h4 align="right">&nbsp;</h4>
-          <h4 align="right">Authorized Signatory</h4> 
-        </th>
-      </tr>
+<tr>
+<th> 
+<h4 align="right">&nbsp;</h4>
+<h4 align="right">Authorized Signatory</h4> 
+</th>
+</tr>
 
-    </thead>
-  </table>
+</thead>
+</table>
 
 
- 
 
+
+]

@@ -13,7 +13,7 @@
 <section id="main-content" class="animated fadeInUp">
   <div class="row">
     <div class="col-md-12">
-      <div class=" panel panel-info">
+      <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="panel-title">Excel Reports</h3>
           <div class="actions pull-right">
@@ -23,7 +23,7 @@
          </div>
          </div>
          <div class="panel-body">
-            <%= link_to "Export Database to Excel", export_excels_reports_path(start_date:@start_date,end_date:@end_date,gstr_type: @gstr_type,format:"xls"),target: '_blank',class: "btn btn-default" %> | <%=link_to "Back", new_report_path,class: 'btn btn-success'%>
+<%=link_to("Export Database to Excel", export_gstr4_composites_path(start_date:@start_date,end_date:@end_date,gstr_type: @gstr_type,format:"xls"),target: '_blank',class: "btn btn-default", class: 'btn btn-success')  %>
         </div>
       </div>
       </div>

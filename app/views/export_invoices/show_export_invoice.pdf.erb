@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-     width:100%;
-   }
-
-   p {
-     width: 250px;
-
-   }
-  address{
-    display: block;
-    width: 300px;
-    
-   }
-   table, th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
-     font-size: 12px;
-   }
-   th, td {
-     padding: 2px;
-     text-align: left;
-   }
-   table#t01 tr:nth-child(even) {
-     background-color: #eee;
-   }
-   table#t01 tr:nth-child(odd) {
-    background-color:#fff;
-  }
-  table#t01 th {
-   background-color: black;
-   color: white;
- }
- h5 {
-   display:inline;
- }
-
- img {
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  padding: 3px;
-  width: 150px;
+<style>
+table {
+width:100%;
 }
-
-
-
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+font-size: 12px;
+}
+address{
+  width: 300px; 
+}
+p{
+width: 250px;
+}
+th, td {
+padding: 2px;
+text-align: left;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color:#fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+h5 {
+display:inline;
+}
+img {
+border: 1px solid #ddd;
+border-radius: 1px;
+padding: 3px;
+width: 100px;
+}
 
 .gallery-text {
-  float: left;
-  width: 48%;
-  margin: 1%;
+float: left;
+width: 48%;
+margin: 1%;
 }
 .gallery-text p {
-  word-break: break-all;
+word-break: break-all;
 }
 </style>
 </head>
 <body>
 
-
-
-
-  <div id="gallery-text">
+    <div id="gallery-text">
     <div class="gallery-text">
-     <%= wicked_pdf_image_tag 'test.jpg' %>
-   </div>
+    <%= wicked_pdf_image_tag current_user.party.image %>
+    </div>
+
    <div class="gallery-text" align="right">
     <p>
       <p> <h2><strong><font color="black"><%=current_user.party.party_name%><br>

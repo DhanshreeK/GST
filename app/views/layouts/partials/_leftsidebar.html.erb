@@ -131,6 +131,11 @@ Register
 
 </ul>
 </li>
+<li class="<%= 'active' if controller?('ui') && action?('buttons') %>">
+<a href="/gstr4_composites/new">
+<i class="fa fa-fw fa-file"></i> Report
+</a>
+</li>
 <li>
 <%end%>
 
@@ -324,11 +329,11 @@ Register
         <i class="fa fa-fw fa-file"></i>Regular
     </a>
 </li>
-   <!--  <li>
+     <li>
         <a href="/export_purchase_bills/" title="Level 3.2">
-            <i class="fa fa-fw fa-file"></i> Export
+            <i class="fa fa-fw fa-file"></i> Purchase Order
         </a>
-    </li> -->
+    </li> 
 
  <li>
     <a href="/nillrate_exempt_bills/" title="Level 3.3">

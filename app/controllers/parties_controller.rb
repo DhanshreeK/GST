@@ -45,7 +45,7 @@ class PartiesController < ApplicationController
     @party = Party.new(party_params)
       if current_user.role == 'ChartedAccountant'
         @party.update!(:charted_accountant_id => current_user.charted_accountant.id) 
-        User.create!(first_name: @party.party_name, username: @party.email, party_id: @party.id, password: @party.party_no, role: 'Party',email: @party.email)
+        # User.create!(first_name: @party.party_name, username: @party.email, party_id: @party.id, password: @party.party_no, role: 'Party',email: @party.email)
       else
         @party.save
       if current_user.role == 'Party'

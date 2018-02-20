@@ -1,4 +1,7 @@
-[ <style>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
 table {
 width:100%;
 }
@@ -7,12 +10,15 @@ border: 1px solid black;
 border-collapse: collapse;
 font-size: 12px;
 }
-th, td {
-padding: 2px;
-text-align: left;
+address{
+  width: 300px; 
 }
 p{
 width: 250px;
+}
+th, td {
+padding: 2px;
+text-align: left;
 }
 table#t01 tr:nth-child(even) {
 background-color: #eee;
@@ -27,59 +33,79 @@ color: white;
 h5 {
 display:inline;
 }
-
 img {
 border: 1px solid #ddd;
 border-radius: 1px;
 padding: 3px;
 width: 150px;
 }
+
+.gallery-text {
+float: left;
+width: 48%;
+margin: 1%;
+}
+.gallery-text p {
+word-break: break-all;
+}
 </style>
 </head>
 <body>
 
+
 <div id="gallery-text">
-<div class="gallery-text">
-<%= wicked_pdf_image_tag 'test.jpg' %>
-</div>
-<div class="gallery-text" align="right">
-<p>
-<p> <h2><strong><font color="black"><%=current_user.party.party_name%><br>Job Worker(Mfg to JW)</strong>  </h2></font> 
-</p>
-</div> 
-</div>
-
-<div class align ="left">
-<p><strong>Consigner GSTIN No:</strong>
-<%=current_user.party.party_gstin_no%></p>
-<p><strong>Date:</strong>
-<%=@job_work.challan_date%></p>
-<p> <strong>Address:</strong>
- <%=current_user.party.party_address%></p>
+  <div class="gallery-text">
+    <%= wicked_pdf_image_tag current_user.party.image %>
+    </div>
+    <div class="gallery-text" align="right">
+      <p>
+        <p> <h2><strong><font color="black"><%=current_user.party.party_name%><br>Job Worker(Mfg to JW)</strong>  </h2></font>
+  <p><strong>Consigner GSTIN No:</strong>
+  <%=current_user.party.party_gstin_no%></p>
+  
+  <p><strong>Date:</strong>
+    <%=@job_work.challan_date%></p>
+  
+  <p> <strong>Address:</strong>
+        <%=current_user.party.party_address%></p>
+  
   <p> <strong>Contact No:</strong>
- <%=current_user.party.contact_no%></p>
- 
+          <%=current_user.party.contact_no%></p>
+    </div> 
 </div>
 
-<div class align ="right">
-<p><strong>Consignee GSTIN NO</strong>
-<%=@job_work.customer.gstin_no_reg if @job_work.customer.present? %></p>
-<p> <strong>Address:</strong>
-<%=@job_work.customer.address if @job_work.customer.present? %></p>
-<p> <strong>GSTIN No:</strong>
-<%=@job_work.customer.gstin_no_reg if @job_work.customer.present? %></p>
-<p><strong>E-Way Bill No:</strong>
-<%=@job_work.e_way_bill_no%></p>
-<p> <strong>Tranportation Mode:</strong>
-<%=@job_work.transportation_mode%></p>
+<div id="gallery-text">
+<div id="gallery-text">
 
-<div class align ="left">
+    <div class="gallery-text" align="left">
+    <p><strong>Consignee GSTIN NO</strong>
+      <%=@job_work.customer.gstin_no_reg if @job_work.customer.present? %></p>
+        <p> <strong>Address:</strong>
+        <%=@job_work.customer.address if @job_work.customer.present? %></p>
+        
+        <p> <strong>GSTIN No:</strong>
+        <%=@job_work.customer.gstin_no_reg if @job_work.customer.present? %></p>
+        
+        <p><strong>E-Way Bill No:</strong>
+        <%=@job_work.e_way_bill_no%></p>
+
+        <p> <strong>Tranportation Mode:</strong>
+        <%=@job_work.transportation_mode%></p>
+
+</div>
+</div>
 
    <p> <strong>Challan No:</strong>
    <%=@job_work.challan_no%></p>
 
    <p> <strong>Challan Date:</strong>
    <%=@job_work.challan_date%></p></div>
+
+   <div class align ="right">
+   <br>
+   <br>
+ </div>  
+ <div class align="left">
 
 
   
@@ -144,4 +170,3 @@ width: 150px;
 </p>
 </div>
 </div>
-]
