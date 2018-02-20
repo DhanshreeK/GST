@@ -122,6 +122,13 @@ Register
         <i class="fa fa-fw fa-file"></i> Purchase Invoice
     </a>
 </li>
+
+<li class="<%= 'active' if controller?('ui') && action?('buttons') %>">
+<a href="/reports/composite_report">
+<i class="fa fa-fw fa-file"></i> Report
+</a>
+</li>
+
 </ul>
 </li>
 <li class="<%= 'active' if controller?('ui') && action?('buttons') %>">

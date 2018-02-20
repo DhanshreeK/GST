@@ -5,12 +5,9 @@
     table {
      width:100%;
    }
-
    p {
        margin-bottom:0px;
-
    }
-
    address{
     display: block;
     width: 300px;
@@ -63,6 +60,7 @@
   width:100%;
   margin:0 auto;
 }
+>>>>>>> sale_bill_branch
 p span{
   font-weight:700;
   color:#000;
@@ -75,10 +73,9 @@ p span{
   <div class="maindiv">
       
           <div class="img">
-           <%= wicked_pdf_image_tag current_user.party.image %>
+           <%= wicked_pdf_image_tag current_user.party.image.url %>
            </div>
         
-
           <div class="leftdiv">
         
             <p> <h2><span><%=current_user.party.party_name%> </span><br>
@@ -94,6 +91,7 @@ p span{
                     <p> <span>Vehicle Number:</span>
                        <%=@invoice.vehicle_number%></p>
 
+                     
                         <p> <span>Transportation Mode:</span>
                        <%=@invoice.transportation_mode%></p>
             </p>
@@ -102,7 +100,6 @@ p span{
 
   <div class="maindiv">
             
-
 
               <div class="rightdiv">
                       <p> <span>Consigner:</span>
@@ -118,7 +115,6 @@ p span{
                       <%=@invoice.ebay_bill_no%></p>
 
               </div> 
-
                
     </div>
               <div class="maindiv">
@@ -133,12 +129,12 @@ p span{
               </div>
 
 
+
             <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
               <thead>
                 <tr>
                   <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="12"><center>Tax Invoice</center></th>
                 </tr>
-
                 <th>Sr No</th>
                 <th>Item Description</th>
                 <th>Item Code</th>
@@ -161,7 +157,6 @@ p span{
                 <td><%= i.item.dogns%></td>
                 <td><%= i.item.item_code%></td>
                 <td><%= i.item.item_hsn_no%></td>
-
                 <td>&#8377;<%= i.unit_price%></td>
                 <td><%= i.quantity%></td>
                 <td>&#8377;<%= i.net_amt%></td>
@@ -176,7 +171,6 @@ p span{
               <% tax_amt += i.tax_amt.to_f%>
               <%total_amt += i.total_amt.to_f%>
               <% end %>
-
               <tr>
               <td></td>
                 <td></td>
@@ -189,12 +183,9 @@ p span{
                 <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
                 <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
              
-
                 <td>Total Tax: &#8377;<%=tax_amt%></td>
                 <td>Total Amount: &#8377;<%= total_amt%></td>
               </tr>
-
-
             </div>
           </div>
         </div>
@@ -202,30 +193,18 @@ p span{
     </div>
   </thead>
 </table>
-
            <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
     <thead>
-
       <tr>
         <th><h3>Amount in Words:-   </h3> <h3><%= total_amt.to_i.to_words.split.map(&:capitalize).join(' ')%> Only <br>Cess: &nbsp;<%= @invoice.total_invoice_value%></th>
       </tr>
-
       <tr>
         <th> 
-
           <H4 align="right">Note <%=@invoice.narration%></H4>
           <H4 align="left">Terms and Conditions <%=@invoice.terms_and_conditions%></H4>
           <h4 align="right">&nbsp;</h4>
-
           <h4 align="right">Authorized Signatory</h4> 
-
-
         </th>
       </tr>
-
     </thead>
   </table>
-
-
- 
-
