@@ -10,6 +10,9 @@ class ExportInvoicesController < ApplicationController
 
   def new
     @export_invoice = ExportInvoice.new
+    @item = Item.new
+    @customer = Customer.new
+    @unit_of_measure = UnitOfMeasure.new
     @export_invoice.export_invoice_items.build # build ingredient attributes, nothing new here
     @export_invoice.export_invoice_number = ExportInvoice.set_invoice_no
     @items = Item.all

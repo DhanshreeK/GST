@@ -9,6 +9,8 @@ class ReceiptVouchersController < ApplicationController
 
 	def new
 	    @receipt_voucher = ReceiptVoucher.new
+	    @item = Item.new
+        @unit_of_measure = UnitOfMeasure.new
 	    @receipt_voucher.receipt_voucher_items.build # build ingredient attributes, nothing new here
 	    @receipt_voucher.voucher_no = ReceiptVoucher.set_receipt_voucher_no
 	    @items = Item.all

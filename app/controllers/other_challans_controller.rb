@@ -9,6 +9,8 @@ class OtherChallansController < ApplicationController
 
   def new
     @other_challan = OtherChallan.new
+    @item = Item.new
+    @unit_of_measure = UnitOfMeasure.new
     @other_challan.other_challan_items.build # build ingredient attributes, nothing new here
     @items = Item.all
   end

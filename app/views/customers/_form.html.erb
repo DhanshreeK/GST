@@ -1,3 +1,5 @@
+<% modal ||= false %>
+<% remote = modal ? true : false %>
   <div class="pageheader">
                 <h1>New Customer</h1>
                 <div class="breadcrumb-wrapper hidden-xs">
@@ -24,12 +26,12 @@
                             </div>
                                      <div class="panel-body">
 
-                                      <%= form_with(model: customer, local: true) do |f| %>
-                                        <% if customer.errors.any? %>
+                                      <%= form_for @customer do |f| %>
+                                        <% if @customer.errors.any? %>
                                           <div id="error_explanation">
-                                            <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+                                            <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this @customer from being saved:</h2>
                                             <ul>
-                                            <% customer.errors.full_messages.each do |message| %>
+                                            <% @customer.errors.full_messages.each do |message| %>
                                               <li><%= message %></li>
                                             <% end %>
                                             </ul>
@@ -135,3 +137,6 @@
                     </div>
                 </div>
         </section>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>

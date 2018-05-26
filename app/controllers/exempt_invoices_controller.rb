@@ -9,6 +9,8 @@ class ExemptInvoicesController < ApplicationController
 
   def new
     @exempt_invoice = ExemptInvoice.new
+    @item = Item.new
+    @unit_of_measure = UnitOfMeasure.new
     @exempt_invoice.exempt_invoice_items.build # build ingredient attributes, nothing new here
     @exempt_invoice.exempt_invoice_number = ExemptInvoice.set_invoice_no
     @items = Item.all

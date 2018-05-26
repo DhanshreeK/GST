@@ -9,6 +9,8 @@ class JobWorksController < ApplicationController
 
   def new
     @job_work = JobWork.new
+    @item = Item.new
+    @unit_of_measure = UnitOfMeasure.new
     @job_work.job_work_items.build # build ingredient attributes, nothing new here
     @job_work.challan_no = JobWork.set_invoice_no
     @items = Item.all

@@ -9,6 +9,8 @@ class PurchaseBillsController < ApplicationController
 
   def new
     @purchase_bill_invoice = PurchaseBill.new
+    @item = Item.new
+    @unit_of_measure = UnitOfMeasure.new
     @purchase_bill_invoice.purchase_bill_items.build # build ingredient attributes, nothing new here
    # @purchase_bill_invoice.purchase_no = PurchaseBill.set_purchase_no
     @items = Item.all

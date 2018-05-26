@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    @item = Item.new
     if current_user.role == 'Party'
       @items = current_user.items
     else
@@ -33,7 +34,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
         @item.update!(user_id: @user.id)
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to items_path, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
