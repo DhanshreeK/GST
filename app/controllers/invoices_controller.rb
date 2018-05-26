@@ -15,6 +15,9 @@ class InvoicesController < ApplicationController
 
   def new
     @invoice = Invoice.new
+    @item = Item.new
+    @customer = Customer.new
+    @unit_of_measure = UnitOfMeasure.new
     @invoice.invoice_items.build # build ingredient attributes, nothing new here
     @invoice.invoice_no = Invoice.set_invoice_no
     @items = Item.all

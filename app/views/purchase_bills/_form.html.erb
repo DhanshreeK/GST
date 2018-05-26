@@ -25,6 +25,8 @@
           </div>
       </div>
    <div class="panel-body">
+      <%= link_to 'Add New Item', new_item_path, {:remote => true, :class => "btn btn-primary", 'data-target' => "#exampleModalCenter", 'data-toggle' => "modal"} %> 
+       | <%= link_to 'Add New UOM', new_unit_of_measure_path, {:remote => true, :class => "btn btn-primary", 'data-target' => "#exampleModalCenter1", 'data-toggle' => "modal"} %> 
       <%= nested_form_for @purchase_bill_invoice, url: {action:'create', controller: 'purchase_bills'} do |f|%>
     <form class="form-horizontal">
       <div class="form-group">
@@ -212,12 +214,16 @@
 </div>
 </section>
 
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+       
+                      <%= render '/items/form', modal: true %>
+       </div>
 
 
+      <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
  
-
-
-
+                <%= render '/unit_of_measures/form', modal: true %>
+      </div>
 
 
 <% content_for :javascript do %>

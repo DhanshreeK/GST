@@ -10,6 +10,8 @@ class RefundVouchersController < ApplicationController
 
 	def new
 	    @refund_voucher = RefundVoucher.new
+	     @item = Item.new
+        @unit_of_measure = UnitOfMeasure.new
 	    @refund_voucher.refund_voucher_items.build # build ingredient attributes, nothing new here
 	    # @refund_voucher.voucher_no = RefundVoucher.set_refund_voucher_no
 	    @items = Item.all

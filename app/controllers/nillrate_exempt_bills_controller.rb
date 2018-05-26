@@ -9,6 +9,8 @@ class NillrateExemptBillsController < ApplicationController
 
   def new
     @nillrate_exempt_bill_invoice = NillrateExemptBill.new
+    @item = Item.new
+    @unit_of_measure = UnitOfMeasure.new
     @nillrate_exempt_bill_invoice.nillrate_exempt_bill_items.build # build ingredient attributes, nothing new here
     @nillrate_exempt_bill_invoice.purchase_no = NillrateExemptBill.set_purchase_no
     @items = Item.all

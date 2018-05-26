@@ -9,6 +9,8 @@ class JobWorkInwardsController < ApplicationController
 
   def new
     @job_work_inward = JobWorkInward.new
+    @item = Item.new
+    @unit_of_measure = UnitOfMeasure.new
     @job_work_inward.job_work_inward_items.build # build ingredient attributes, nothing new here
     @items = Item.all
   end

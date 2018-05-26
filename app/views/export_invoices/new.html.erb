@@ -1,5 +1,3 @@
-<%= render 'layouts/custadd'%>
-
 <div class="pageheader">
 <h1>New Export Invoice</h1>
 <div class="breadcrumb-wrapper hidden-xs">
@@ -33,6 +31,9 @@
  <div class="pull-left">
   <%= link_to 'With PAy', new_export_invoice_path(:param1 => "withpay"),class: 'btn btn-info'%>
           <%= link_to 'Without PAy', new_export_invoice_path(:param1 => "withoutpay"),class: 'btn btn-info'%>
+
+       <%= link_to 'Add New Item', new_item_path, {:remote => true, :class => "btn btn-primary", 'data-target' => "#exampleModalCenter", 'data-toggle' => "modal"} %> 
+       | <%= link_to 'Add New UOM', new_unit_of_measure_path, {:remote => true, :class => "btn btn-primary", 'data-target' => "#exampleModalCenter1", 'data-toggle' => "modal"} %> |  <%= link_to 'Add Customer', new_customer_path, {:remote => true, :class => "btn btn-primary", 'data-target' => "#exampleModalCenter2", 'data-toggle' => "modal"} %>
           </div>
           </div>
   <%= nested_form_for @export_invoice, url: {action:'create', controller: 'export_invoices'} do |f|%>
@@ -45,12 +46,7 @@
         <div class="col-sm-3">
           <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
 
-          <center><p>
-          <button  type="button" data-toggle="modal" data-target="#formModal" style="width: 181px; height: 24px;background: white;color: black;">
-          Add Cutomer
-          </button>
-        </p>
-          </center>
+         
         </div>
       </div>
       <%else%>
@@ -225,7 +221,21 @@
 </div>
 </div>
 </div>
+   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+       
+                      <%= render '/items/form', modal: true %>
+       </div>
 
+
+      <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ 
+                <%= render '/unit_of_measures/form', modal: true %>
+      </div>
+
+       <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ 
+                <%= render '/customers/form', modal: true %>
+      </div>
 
 
 
