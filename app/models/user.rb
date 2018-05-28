@@ -29,7 +29,7 @@ class User < ApplicationRecord
   has_many :other_challans, dependent: :destroy
   has_many :b2b_composites, dependent: :destroy
   has_many :composite_cd_notes, dependent: :destroy
-
+  scope :load, ->(id) { where(id: id).take }
 
 
   def create_general_setting

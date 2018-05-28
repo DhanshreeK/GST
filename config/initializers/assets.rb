@@ -62,6 +62,8 @@ Rails.application.config.assets.precompile += %w( composite_cd_notes.css )
 Rails.application.config.assets.precompile += %w( composite_cd_notes.js )
 Rails.application.config.assets.precompile += %w( gstr4_composites.css )
 Rails.application.config.assets.precompile += %w( gstr4_composites.js )
+Rails.application.config.assets.precompile += %w( manage_users.css )
+Rails.application.config.assets.precompile += %w( manage_users.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
