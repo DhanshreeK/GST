@@ -14,7 +14,12 @@ Rails.application.routes.draw do
       get :print_pdf
       end
     end
-
+ resources :manage_users do
+    member do
+      get :change_password
+      patch :update_password
+    end
+  end
   resources :unit_of_measures
   resources :business_sales
   resources :customers do 
