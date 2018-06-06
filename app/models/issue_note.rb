@@ -6,15 +6,7 @@ class IssueNote < ApplicationRecord
   scope :shod, ->(id) { where(id: id).take }
   after_create :add_hsn_summary
 
-  def self.set_issue_note_no
-    date = Date.today.strftime('%d')
-    if IssueNote.first.nil?
-      Setting.first.cd_series + date.to_s + '1'
-    else
-      last_id = IssueNote.last.id.next
-      Setting.first.cd_series + date.to_s + last_id.to_s
-    end
-  end
+  
 
 
    def add_hsn_summary

@@ -8,7 +8,7 @@ class IssueNotesController < ApplicationController
      @item = Item.new
     @unit_of_measure = UnitOfMeasure.new
     @issue_note.issue_note_items.build # build ingredient attributes, nothing new here
-    @issue_note.invoice_no = IssueNote.set_issue_note_no
+    #@issue_note.invoice_no = IssueNote.set_issue_note_no
     @items = Item.all
   end
 

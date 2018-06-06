@@ -53,13 +53,13 @@
         <td><%= i.quantity%></td>
         <td>&#8377;<%= i.net_amount%></td>
         <td><%= i.tax_rate%>&#37;</td>
-        <%@purchase_bill_invoice.update(tax_rate: i.tax_rate)%>
+        <%# @purchase_bill_invoice.update(tax_rate: i.tax_rate)%>
 
         <td>CGST+SGST</td>
         <td>&#8377;<%= i.tax_amt%></td>
         <td align="right">&#8377;<%= i.total_amt%></td>
          <%total_amt += i.total_amt.to_f%>
-         <%@purchase_bill_invoice.update(invoice_value: total_amt)%>
+         <%#@purchase_bill_invoice.update(invoice_value: total_amt)%>
       
       </tr>
     <% end %>

@@ -685,8 +685,6 @@ ActiveRecord::Schema.define(version: 20180215055645) do
     t.string "rcm"
     t.string "narration"
     t.string "terms_and_conditions"
-    t.string "invoice_value"
-    t.string "tax_rate"
     t.index ["customer_id"], name: "index_purchase_bills_on_customer_id"
     t.index ["user_id"], name: "index_purchase_bills_on_user_id"
   end

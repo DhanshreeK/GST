@@ -63,7 +63,7 @@
 
   <div id="gallery-text">
     <div class="gallery-text">
-     <%= wicked_pdf_image_tag 'test.jpg' %>
+     <%= wicked_pdf_image_tag  current_user.party.image.url%>
    </div>
    <div class="gallery-text" align="right">
     <p>
@@ -147,6 +147,7 @@
               <%tax_amt = 0%>
               <%total_amt = 0%>
               <% rate = 0 %>
+              <% netamt=0 %>
               <% @b2b_composite.b2b_composite_items.each_with_index do |i,n|%>
               <tr>
                 <td><%= n + 1 %></td>
@@ -166,6 +167,7 @@
               </tr>
               <% tax_amt += i.tax_amt.to_f%>
               <%total_amt += i.total_amt.to_f%>
+              <% netamt += i.net_amt.to_f%>
               <% end %>
 
               <tr>
@@ -174,7 +176,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>Net Amount: &#8377;<%= netamt %></td>
                    <td>Tax Rate: &#8377;<%= rate %></td>
                 <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
                 <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
@@ -204,7 +206,7 @@
       <tr>
         <th> 
           <h4 align="right">&nbsp;</h4>
-          <h4 align="right">Authorized Signatory</h4> 
+          <h4 align="right">Authorized Signature</h4> 
         </th>
       </tr>
 

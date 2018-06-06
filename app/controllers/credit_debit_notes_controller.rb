@@ -12,7 +12,7 @@ class CreditDebitNotesController < ApplicationController
     @item = Item.new
     @unit_of_measure = UnitOfMeasure.new
     @credit_debit_note.credit_debit_note_items.build # build ingredient attributes, nothing new here
-     @credit_debit_note.invoice_no = CreditDebitNote.set_credit_debit_note_no
+     #@credit_debit_note.invoice_no = CreditDebitNote.set_credit_debit_note_no
     @items = Item.all
   end
 

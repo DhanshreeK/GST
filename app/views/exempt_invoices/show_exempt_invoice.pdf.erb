@@ -163,6 +163,7 @@ word-break: break-all;
                       </tr>
                       <%tax_amt = 0%>
                       <%total_amt = 0%>
+                      <% netamt = 0%>
 
                       <% @exempt_invoice.exempt_invoice_items.each_with_index do |i,n|%>
                       <tr>
@@ -180,6 +181,7 @@ word-break: break-all;
                       </tr>
                       <% tax_amt += i.tax_amt.to_f%>
                       <%total_amt += i.total_amt.to_f%>
+                       <% netamt += i.net_amt.to_f%>
                       <% end %>
 
                       <tr>
@@ -190,7 +192,7 @@ word-break: break-all;
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>Net Amount: &#8377;<%= netamt%></td>
                   
                         <td>Total Tax: &#8377;<%=tax_amt%></td>
                         <td>Total Amount: &#8377;<%= total_amt%></td>
@@ -214,11 +216,11 @@ word-break: break-all;
       <tr>
         <th> 
 
-          <H4 align="right">Note <%=@exempt_invoice.narration%></H4>
-          <H4 align="left">Terms and Conditions <%=@exempt_invoice.terms_and_conditions%></H4>
+          <H4 align="left"><u>Note:</u> <%=@exempt_invoice.narration%></H4>
+          <H4 align="left"><u>Terms and Conditions:</u> <%=@exempt_invoice.terms_and_conditions%></H4>
           <h4 align="right">&nbsp;</h4>
 
-          <h4 align="right">Authorized Signatory</h4> 
+          <h4 align="right">Authorized Signature</h4> 
 
 
         </th>

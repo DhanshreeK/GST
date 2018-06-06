@@ -110,7 +110,7 @@ word-break: break-all;
   <table class="table table-condensed table-bordered" style="margin-top: -15px; margin-bottom: 15px;">
     <thead>
       <tr>
-        <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="11"><center><%= raw "#{@issue_note.note_type}" if @issue_note.present?%></center></th>
+        <th style="font-size: 16px; background-color: #ccc; width: 75px;" colspan="12"><center><%= raw "#{@issue_note.note_type}" if @issue_note.present?%></center></th>
       </tr>
 
       <th>Sr No</th>
@@ -129,6 +129,7 @@ word-break: break-all;
     <%tax_amt = 0%>
     <%total_amt = 0%>
     <% rate = 0 %>
+    <%netamt=0 %>
     <% @issue_note.issue_note_items.each_with_index do |i,n|%>
     <tr>
       <td><%= n + 1 %></td>
@@ -149,6 +150,7 @@ word-break: break-all;
     </tr>
     <% tax_amt += i.tax_amt.to_f%>
     <%total_amt += i.total_amt.to_f%>
+    <% netamt += i.net_amt.to_f%>
     <% end %>
 
     <tr>
@@ -157,7 +159,7 @@ word-break: break-all;
       <td></td>
       <td></td>
       <td></td>               
-      <td></td>
+      <td>Net Amount: &#8377;<%= netamt %></td>
                     <td>Tax Rate: &#8377;<%= rate %></td>
       <td></td>
 
@@ -165,6 +167,7 @@ word-break: break-all;
 
       <td>Total Tax: &#8377;<%=tax_amt%></td>
       <td>Total Amount: &#8377;<%= total_amt%></td>
+      <td></td>
     </tr>
 
 
@@ -186,7 +189,7 @@ word-break: break-all;
 <th> 
 <H2 align="right">For <%=current_user.party.party_name%></H2>
 <h2 align="right">&nbsp;</h2>
-<h2 align="right">Authorized Signatory</h2> 
+<h2 align="right">Authorized Signature</h2> 
 </th>
 </tr>
 </thead>
