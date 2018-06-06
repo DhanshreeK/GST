@@ -70,11 +70,12 @@ p span{
 </head>
 <body>
 
-  <div class="maindiv">
-      
+  
+          <div class="maindiv">
           <div class="img">
            <%= wicked_pdf_image_tag current_user.party.image.url %>
            </div>
+
         
           <div class="leftdiv">
         
@@ -151,6 +152,7 @@ p span{
               <%tax_amt = 0%>
               <%total_amt = 0%>
               <% rate = 0 %>
+              <% netamt =0 %>
               <% @invoice.invoice_items.each_with_index do |i,n|%>
               <tr>
                 <td><%= n + 1 %></td>
@@ -163,13 +165,13 @@ p span{
                  <td><%= i.tax_rate%>&#37;</td>
                 <td>&#8377;<%=ans = i.tax_amt/2%></td>
                 <td>&#8377;<%=ans%></td>
-               
+                <% netamt = netamt + i.net_amt.to_f %>
                 <% rate = rate + i.tax_rate.to_f %>
                 <td>&#8377;<%= i.tax_amt%></td>
                 <td align="right">&#8377;<%= i.total_amt%></td>
               </tr>
               <% tax_amt += i.tax_amt.to_f%>
-              <%total_amt += i.total_amt.to_f%>
+              <% total_amt += i.total_amt.to_f%>
               <% end %>
               <tr>
               <td></td>
@@ -178,8 +180,8 @@ p span{
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                   <td>Tax Rate: &#8377;<%= rate %></td>
+                <td> Net Amount: &#8377;<%= netamt %></td>
+                <td><!-- Tax Rate: &#8377;<%= rate %> --></td>
                 <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
                 <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
              
@@ -200,10 +202,10 @@ p span{
       </tr>
       <tr>
         <th> 
-          <H4 align="right">Note <%=@invoice.narration%></H4>
-          <H4 align="left">Terms and Conditions <%=@invoice.terms_and_conditions%></H4>
+          <H4 align="left"><u>Note:</u> <%=@invoice.narration%></H4>
+          <H4 align="left"><u>Terms and Conditions:</u><%=@invoice.terms_and_conditions%></H4>
           <h4 align="right">&nbsp;</h4>
-          <h4 align="right">Authorized Signatory</h4> 
+          <h4 align="right">Authorized Signature</h4> 
         </th>
       </tr>
     </thead>

@@ -146,6 +146,7 @@ word-break: break-all;
               <%tax_amt = 0%>
               <%total_amt = 0%>
               <% rate = 0 %>
+              <% netamt = 0 %>
 
               <% @export_invoice.export_invoice_items.each_with_index do |i,n|%>
               <tr>
@@ -167,6 +168,7 @@ word-break: break-all;
               </tr>
               <% tax_amt += i.tax_amt.to_f%>
               <%total_amt += i.total_amt.to_f%>
+              <%netamt += i.net_amt.to_f%>
               <% end %>
 
               <tr>
@@ -175,7 +177,7 @@ word-break: break-all;
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>Net Amount: &#8377;<%= netamt %> </td>
                 <td>CGST: &#8377;<%=tax_amt/2%></td>
                 <td>SGST: &#8377;<%=tax_amt/2%></td>
                 <td>Tax Rate: &#8377;<%= rate %></td>
@@ -203,11 +205,11 @@ word-break: break-all;
       <tr>
         <th> 
 
-          <H4 align="right">Note <%=@export_invoice.narration%></H4>
-          <H4 align="left">Terms and Conditions <%=@export_invoice.terms_and_conditions%></H4>
+          <H4 align="left"><u>Note:</u> <%=@export_invoice.narration%></H4>
+          <H4 align="left"><u>Terms and Conditions:</u> <%=@export_invoice.terms_and_conditions%></H4>
           <h4 align="right">&nbsp;</h4>
 
-          <h4 align="right">Authorized Signatory</h4> 
+          <h4 align="right">Authorized Signature</h4> 
 
 
         </th>

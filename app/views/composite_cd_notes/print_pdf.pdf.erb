@@ -63,7 +63,7 @@ word-break: break-all;
 
 <div id="gallery-text">
 <div class="gallery-text">
-<%= wicked_pdf_image_tag 'test.jpg' %>
+<%= wicked_pdf_image_tag current_user.party.image.url %>
 </div>
 <div class="gallery-text" align="right">
 <p>
@@ -163,6 +163,7 @@ Credit/DebitNote Invoice</strong>  </h2></font> <font size="3">(Original for Rec
     <%tax_amt = 0%>
     <%total_amt = 0%>
     <% rate = 0 %>
+    <% netamt = 0 %>
     <% @composite_cd_note.composite_cd_note_items.each_with_index do |i,n|%>
     <tr>
       <td><%= n + 1 %></td>
@@ -183,6 +184,7 @@ Credit/DebitNote Invoice</strong>  </h2></font> <font size="3">(Original for Rec
     </tr>
     <% tax_amt += i.tax_amt.to_f%>
     <%total_amt += i.total_amt.to_f%>
+    <% netamt += i.net_amt.to_f%>
     <% end %>
 
     <tr>
@@ -192,7 +194,7 @@ Credit/DebitNote Invoice</strong>  </h2></font> <font size="3">(Original for Rec
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
+      <td>Net Amount: &#8377;<%= netamt %></td>
          <td>Tax Rate: &#8377;<%= rate %></td>
       <td><!-- CGST: &#8377;<%#=tax_amt/2%> --></td>
       <td><!-- SGST: &#8377;<%#=tax_amt/2%> --></td>
@@ -222,7 +224,7 @@ Credit/DebitNote Invoice</strong>  </h2></font> <font size="3">(Original for Rec
 <tr>
 <th> 
 <h4 align="right">&nbsp;</h4>
-<h4 align="right">Authorized Signatory</h4> 
+<h4 align="right">Authorized Signature</h4> 
 </th>
 </tr>
 
