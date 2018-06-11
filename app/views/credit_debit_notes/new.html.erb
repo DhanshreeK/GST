@@ -141,9 +141,15 @@
         <div class="form-group">
             <div class="col-sm-3">
              <div class="radio">
-              <%= f.radio_button "register_type", "Registered"%><h6><b>Registered</b></h6>
+              <%= f.radio_button "register_type", "Registered"%><h6><b>Registered</b></h6><br>
               <%= f.radio_button "register_type", "Non-Registered"%><h6><b>Non-Registered</b></h6><br>
-              <%= f.radio_button "note_type", "Credit-Note"%><h6><b>Credit-Note</b></h6>
+               </div>
+          </div>
+        </div>
+               <div class="form-group">
+            <div class="col-sm-3">
+             <div class="radio">
+              <%= f.radio_button "note_type", "Credit-Note"%><h6><b>Credit-Note</b></h6><br>
               <%= f.radio_button "note_type", "Debit-Note"%><h6><b>Debit-Note</b></h6>
             </div>
           </div>

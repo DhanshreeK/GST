@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table {
-width:100%;
-}
-table, th, td {
-border: 1px solid black;
-border-collapse: collapse;
-font-size: 12px;
-}
-address{
-  width: 300px; 
-}
-p{
-width: 250px;
-}
-th, td {
-padding: 2px;
-text-align: left;
-}
-table#t01 tr:nth-child(even) {
-background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-background-color:#fff;
-}
-table#t01 th {
-background-color: black;
-color: white;
-}
-h5 {
-display:inline;
-}
-img {
-border: 1px solid #ddd;
-border-radius: 1px;
-padding: 3px;
-width: 100px;
+  <style>
+    table {
+     width:100%;
+   }
+   p {
+       margin-bottom:0px;
+   }
+   address{
+    display: block;
+    width: 300px;
+    margin:0px;
+    
+   }
+   table, th, td {
+     border: 1px solid black;
+     border-collapse: collapse;
+     font-size: 12px;
+   }
+   th, td {
+     padding: 2px;
+     text-align: left;
+   }
+   table#t01 tr:nth-child(even) {
+     background-color: #eee      }
+   table#t01 tr:nth-child(odd) {
+    background-color:#fff;
+  }
+  table#t01 th {
+   background-color: black;
+   color: white;
+ }
+ h5 {
+   display:inline;
+ }
+
+.img {
+  border: 0px solid #ddd;
+  float: left;
+  border-radius: 1px;
+  padding: 3px;
+  width: 200px;
 }
 
-.gallery-text {
-float: left;
-width: 48%;
-margin: 1%;
+
+.maindiv{
+    width:100%;
 }
-.gallery-text p {
-word-break: break-all;
+.leftdiv{
+  float:left;
+  width:50%;
+} 
+.rightdiv{
+  float:right;
+  width:30%;
+} 
+.centerdiv{
+  width:100%;
+  margin:0 auto;
 }
+
+p span{
+  font-weight:700;
+  color:#000;
+}
+
 </style>
 </head>
 <body>
@@ -80,9 +98,9 @@ word-break: break-all;
 
 
 
-<div id="gallery-text">
 
-<div class="gallery-text">
+<div class="maindiv">
+  <div class="rightdiv">
 <p>
 <p><strong>Consignee:</strong>
 
@@ -101,10 +119,12 @@ word-break: break-all;
 <%=@export_purchase_bill_invoice.transportation_mode%></p>
 <p><strong>Vehicle Number</strong>
 <%=@export_purchase_bill_invoice.vehicle_number%></p>
+
+</div>
 </div>
 
 
-<div class="gallery-text" align="right">
+<div class="gallery-text" align="left">
 
 <p>
 <p> <strong>Consigner:</strong>
