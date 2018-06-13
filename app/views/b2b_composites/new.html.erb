@@ -256,10 +256,11 @@
       <div class="form-group">
         <div class="col-sm-3">
 
-          <label class="col-sm-10 control-label">Search Customers</label>           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
+          <label class="col-sm-10 control-label">Search Customers</label>          
+           <%=f.select :customer_id ,current_user.customers.collect{|i| [i.customer_name, i.id]}, {prompt:true},class: "form-control"%>
           <center><p>
-          <button  type="button" data-toggle="modal" data-target="#formModal" style="width: 181px; height: 24px;background: white;color: black;">
-          Add Cutomer
+          <button  type="button" data-toggle="modal" data-target="#formModal" style="width: 181px; height: 24px;background: black;color: white;">
+          Add Customer
           </button>
         </p>
           </center>
@@ -334,8 +335,8 @@
             <div class="col-sm-3">
 
              <div class="radio">
-              <%= f.radio_button "invoice_type", "4B(B2B)",checked: true%><h6><b>4B(B2B)</b></h6>
-              <%= f.radio_button "invoice_type", "4C(B2BUR)"%><h6><b>4C(B2BUR)</b></h6>
+              <%= f.radio_button "invoice_type", "4B(B2B)",checked: true%><h6><b>4B(B2B)</b></h6><br>
+              <%= f.radio_button "invoice_type", "4C(B2BUR)"%><h6><b>4C(B2BUR)</b></h6><br>
               <%= f.radio_button "invoice_type", "4D(IMPS)"%><h6><b>4D(IMPS)</b></h6>
               
             </div>
